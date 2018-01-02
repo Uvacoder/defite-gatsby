@@ -16,6 +16,7 @@
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-remark": "^1.7.26",
     "glamorous": "^4.11.2",
+    "react-load-script": "0.0.6",
     "typography-theme-wordpress-2011": "^0.15.10"
   }
 }
