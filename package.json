@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-defite",
+  "description": "Personal site built on Gatsby",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.145",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-glamor": "^1.6.10",
+    "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-remark-images": "^1.5.36",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
+    "glamorous": "^4.11.2",
+    "typography-theme-wordpress-2011": "^0.15.10"
+  }
+}
