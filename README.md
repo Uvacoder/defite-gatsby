@@ -1,10 +1,13 @@
-# gatsby-starter-hello-world
-Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site
-
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world
-```
+# Defite-gatsby
+Personal site built on [Gatsby](https://www.gatsbyjs.org/) with integrated [Netlify CMS](https://github.com/netlify/netlify-cms).
 
 ## Running in development
 `gatsby develop`
+
+## Building prod version
+`gatsby build`
+
+## Running prod version
+`gatsby serve`
+
+PR and issues are welcome!
