@@ -1,8 +1,9 @@
 import React from "react"
 import Link from "gatsby-link"
+import styles from "./layout.module.css"
 
-const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+const MenuItem = props =>
+  <li className={styles.menuItem}>
     <Link to={props.to}>
       {props.children}
     </Link>
@@ -10,14 +11,14 @@ const ListLink = props =>
 
 export default ({ children, data }) => (
   <div style={{ margin: `0 auto`, maxWidth: 650, padding: `1.25rem 1rem` }}>
-    <header style={{ marginBottom: `1.5rem` }}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h1 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h1>
-      </Link>
-      <ul style={{ listStyle: `none`, float: `right` }}>
-        <ListLink to="/">Home</ListLink>
-        <ListLink to="/blog/">Blog</ListLink>
-        <ListLink to="/about/">About</ListLink>
+    <header className={ styles.header }>
+      <h3 className={ styles.logo }>
+        <Link to="/">{data.site.siteMetadata.title}</Link>
+      </h3>
+      <ul className={ styles.menu }>
+        <MenuItem to="/">Home</MenuItem>
+        <MenuItem to="/blog/">Blog</MenuItem>
+        <MenuItem to="/about/">About</MenuItem>
       </ul>
     </header>
     {children()}

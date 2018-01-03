@@ -31,5 +31,12 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
+    {
+      resolve: `gatsby-plugin-react-css-modules`,
+      options: {
+        // Exclude global styles from the plugin using a RegExp:
+        exclude: `\/global\/`,
+      },
+    },
   ],
 };

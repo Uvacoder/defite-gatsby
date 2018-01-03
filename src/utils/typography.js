@@ -1,6 +1,6 @@
 import Typography from "typography";
-import wpTheme from "typography-theme-wordpress-2011";
+import theme from "typography-theme-parnassus";
 
-const typography = new Typography(wpTheme);
+const typography = new Typography(theme);
 
 export default typography;

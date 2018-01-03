@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
+import styles from "./blog.module.css"
 
 export default ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
@@ -8,15 +9,15 @@ export default ({ data }) => {
     <div>
       { posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node }) => (
         <div key={node.id}>
-          <Link
-            to={node.frontmatter.path}
-            css={{ textDecoration: `none`, color: `inherit` }}
-          >
-          <h2>
-            {node.frontmatter.title}{" "}
-            <span>— {node.frontmatter.date}</span>
+
+          <h2 className={ styles.title }>
+            <Link
+              to={node.frontmatter.path}
+              css={{ textDecoration: `none`, color: `inherit` }}
+            >{node.frontmatter.title}{" "}</Link>
           </h2>
-          </Link>
+          <span className={ styles.pubdate }>{node.frontmatter.date}</span>
+
           <p>{node.excerpt}</p>
         </div>
       ))}
