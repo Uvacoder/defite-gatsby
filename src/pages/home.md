@@ -1,5 +1,5 @@
 ---
-templateKey: page
+templateKey: home
 path: /
 title: Home
 ---

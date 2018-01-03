@@ -2,12 +2,14 @@ import React from "react"
 import Link from "gatsby-link"
 
 export default ({ data }) => {
+  const { edges: posts } = data.allMarkdownRemark;
+
   return (
     <div>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      { posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node }) => (
         <div key={node.id}>
           <Link
-            to={node.fields.slug}
+            to={node.frontmatter.path}
             css={{ textDecoration: `none`, color: `inherit` }}
           >
           <h2>
@@ -24,18 +26,17 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query IndexQuery {
+  query BlogPostsQuery {
     allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
       totalCount
       edges {
         node {
           id
           frontmatter {
+            templateKey
             title
             date(formatString: "DD MMMM, YYYY")
-          }
-          fields {
-            slug
+            path
           }
           excerpt
         }

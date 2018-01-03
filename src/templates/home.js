@@ -16,15 +16,28 @@ export default class IndexPage extends Component {
   }
 
   render() {
+    const { data: { markdownRemark } } = this.props;
     return (
       <div>
         <Script
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={this.handleScriptLoad.bind(this)}
         />
-        <h1>Index page</h1>
-        <p>Home page for everything</p>
+        <h1>{ markdownRemark.frontmatter.title }</h1>
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </div>
     )
   }
 }
+
+export const pageQuery = graphql`
+  query IndexPageData($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        title
+        path
+      }
+    }
+  }
+`;
