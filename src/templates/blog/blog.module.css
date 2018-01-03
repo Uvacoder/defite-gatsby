@@ -2,7 +2,11 @@
   margin-bottom: 5px;
 
   & a {
-    color: #0397c7;
+    color: #3169B3;
+
+    &:hover {
+      color: #C00;
+    }
   }
 }
 
