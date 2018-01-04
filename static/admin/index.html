@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  
+
   <!-- Include the styles for the Netlify CMS UI, after your own styles -->
   <link rel="stylesheet" href="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.css" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -13,5 +13,39 @@
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^1.0.0/dist/cms.js"></script>
+  <script>
+    CMS.registerEditorComponent({
+      label: 'Extra image',
+      id: 'eximage',
+      fromBlock: function(match) {
+        return match && {
+          image: match[2],
+          alt: match[1],
+        };
+      },
+      toBlock: function(obj) {
+        var dataWidth = obj.width ? "data-width=\"full\"" : "";
+        return "<span " + dataWidth +">![" + (obj.alt || '') + "](" + (obj.image || '') + ")</span>";
+      },
+      toPreview: function(obj, getAsset) {
+        return (
+          "<img src=" + (getAsset(obj.image) || '') + "alt=" + obj.alt || '' + "/>"
+        );
+      },
+      pattern: /eximage (\S+)\s/,
+      fields: [{
+        label: 'Image',
+        name: 'image',
+        widget: 'image',
+      }, {
+        label: 'Full width',
+        name: 'width',
+        widget: 'boolean'
+      }, {
+        label: 'Alt Text',
+        name: 'alt',
+      }]
+    });
+  </script>
 </body>
 </html>

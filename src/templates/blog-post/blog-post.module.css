@@ -1,0 +1,13 @@
+.post {
+  & span[data-width="full"] {
+    position: relative;
+    right: 50%;
+    left: 50%;
+
+    display: block;
+
+    width: 100vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
+  }
+}
