@@ -1,5 +1,7 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import Link from "gatsby-link"
+import Helmet from 'react-helmet'
 import styles from "./layout.module.css"
 
 const MenuItem = props =>
@@ -9,11 +11,12 @@ const MenuItem = props =>
     </Link>
   </li>
 
-export default ({ children, data }) => (
-  <div style={{ margin: `0 auto`, maxWidth: 650, padding: `1.25rem 1rem` }}>
+const Header = (data) => {
+  const { logoTitle, pageTitle } = data.site.siteMetadata;
+  return (
     <header className={ styles.header }>
       <h3 className={ styles.logo }>
-        <Link to="/">{data.site.siteMetadata.title}</Link>
+        <Link to="/">{ logoTitle }</Link>
       </h3>
       <ul className={ styles.menu }>
         <MenuItem to="/">Home</MenuItem>
@@ -21,15 +24,32 @@ export default ({ children, data }) => (
         <MenuItem to="/about/">About</MenuItem>
       </ul>
     </header>
-    {children()}
-  </div>
-);
+  );
+};
+
+const Wrapper = ({ children, data }) => {
+  const { logoTitle, pageTitle } = data.site.siteMetadata;
+  return (
+    <div className={ styles.wrapper }>
+      <Helmet title={`${logoTitle} – ${pageTitle}`} />
+      <Header {...data}/>
+      <div>{children()}</div>
+    </div>
+  )
+}
+
+Wrapper.propTypes = {
+  children: PropTypes.func
+};
+
+export default Wrapper;
 
 export const query = graphql`
   query LayoutQuery {
     site {
       siteMetadata {
-        title
+        logoTitle,
+        pageTitle
       }
     }
   }

@@ -11,10 +11,7 @@ export default ({ data }) => {
         <div key={node.id}>
 
           <h2 className={ styles.title }>
-            <Link
-              to={node.frontmatter.path}
-              css={{ textDecoration: `none`, color: `inherit` }}
-            >{node.frontmatter.title}{" "}</Link>
+            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </h2>
           <span className={ styles.pubdate }>{node.frontmatter.date}</span>
 

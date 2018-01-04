@@ -4,7 +4,7 @@ export default ({ data }) => {
   const page = data.markdownRemark;
   return (
     <div>
-      <h1>{page.frontmatter.title}</h1>
+      <h2>{page.frontmatter.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: page.html }} />
     </div>
   );

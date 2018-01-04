@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Nikita Makhov`,
+    logoTitle: `Nikita Makhov`,
+    pageTitle: `Frontend Web Developer`
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

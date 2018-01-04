@@ -2,6 +2,12 @@ body {
   color: #3e3e3e;
 }
 
+.wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+}
+
 .header {
   display: flex;
 
@@ -30,8 +36,6 @@ body {
     padding-bottom: 2px;
 
     & a {
-      text-transform: uppercase;
-
       &:before {
         position: absolute;
         bottom: 0;

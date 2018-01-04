@@ -23,7 +23,7 @@ export default class IndexPage extends Component {
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={this.handleScriptLoad.bind(this)}
         />
-        <h1>{ markdownRemark.frontmatter.title }</h1>
+        <h2>{ markdownRemark.frontmatter.title }</h2>
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </div>
     )
