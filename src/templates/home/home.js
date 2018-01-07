@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Script from 'react-load-script'
+import styles from './home.module.css'
 
 export default class IndexPage extends Component {
   handleScriptLoad() {
@@ -18,14 +19,13 @@ export default class IndexPage extends Component {
   render() {
     const { data: { markdownRemark } } = this.props;
     return (
-      <div>
+      <section className={ styles.intro }>
         <Script
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={this.handleScriptLoad.bind(this)}
         />
-        <h2>{ markdownRemark.frontmatter.title }</h2>
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-      </div>
+      </section>
     )
   }
 }

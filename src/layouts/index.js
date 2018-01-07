@@ -4,6 +4,10 @@ import Link from "gatsby-link"
 import Helmet from 'react-helmet'
 import styles from "./layout.module.css"
 
+/**
+* Render menu item
+* @param {Object} props - Props for menu item
+*/
 const MenuItem = props =>
   <li className={styles.menuItem}>
     <Link to={props.to}>
@@ -11,6 +15,10 @@ const MenuItem = props =>
     </Link>
   </li>
 
+/**
+* Render Header
+* @param {Object} data - Data for header
+*/
 const Header = (data) => {
   const { logoTitle, pageTitle } = data.site.siteMetadata;
   return (
@@ -27,6 +35,11 @@ const Header = (data) => {
   );
 };
 
+/**
+* Render Wrapper
+* @param {function} - Returns children to render
+* @param {Object} - Data passed to header
+*/
 const Wrapper = ({ children, data }) => {
   const { logoTitle, pageTitle } = data.site.siteMetadata;
   return (

@@ -1,0 +1,37 @@
+.intro {
+  position: relative;
+  right: 50%;
+  left: 50%;
+
+  display: flex;
+
+  width: 100vw;
+  height: 400px;
+  margin: 4em -50vw;
+
+  background: url(/img/header/jumbotron.jpg);
+  background-position: bottom;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+
+  & h1,
+  & h3 {
+    margin: 0;
+
+    @media only screen and (max-width: 425px) {
+      background-color: #1bafe0;
+    }
+  }
+
+  & span {
+    display: inline-block;
+
+    padding: 0.5rem;
+
+    color: #fff;
+    background: #1bafe0;
+  }
+
+}
