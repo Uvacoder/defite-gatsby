@@ -71,6 +71,10 @@ body {
   }
 
   & .menu {
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+
     margin: 0;
     padding: 0;
 
