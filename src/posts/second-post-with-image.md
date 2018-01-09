@@ -9,3 +9,5 @@ date: 2018-01-02T21:57:48.831Z
 I can do posts with full width images like this or paste ordinary images that will fit content.
 
 ![Another image, ordinary content width](../images/tonton-revolver-coders-strike-back.jpg)
+
+![some other image](/img/photo-1489257712451-3a66755ca19c.jpeg)
