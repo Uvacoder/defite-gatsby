@@ -10,4 +10,4 @@ I can do posts with full width images like this or paste ordinary images that wi
 
 ![Another image, ordinary content width](../images/tonton-revolver-coders-strike-back.jpg)
 
-![some other image](/img/photo-1489257712451-3a66755ca19c.jpeg)
+![some other image](../images/photo-1489257712451-3a66755ca19c.jpeg)
