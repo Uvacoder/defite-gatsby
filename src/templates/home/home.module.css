@@ -9,7 +9,7 @@
   height: 400px;
   margin: 4em -50vw;
 
-  background: url(/img/header/jumbotron.jpg);
+  background: url('/img/header/header.jpeg');
   background-position: bottom;
   background-size: cover;
   justify-content: center;
