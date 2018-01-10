@@ -24,7 +24,7 @@ module.exports = {
               sizeByPixelDensity: false,
               backgroundColor: 'transparent'
             },
-          },
+          }
         ],
       },
     },

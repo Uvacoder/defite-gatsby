@@ -8,6 +8,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "fs-extra": "^5.0.0",
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-css-modules": "^1.0.11",
