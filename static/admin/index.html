@@ -17,15 +17,10 @@
     CMS.registerEditorComponent({
       label: 'Extra image',
       id: 'eximage',
-      fromBlock: function(match) {
-        return match && {
-          image: match[2],
-          alt: match[1],
-        };
-      },
       toBlock: function(obj) {
         var dataWidth = obj.width ? "data-width=\"full\"" : "";
-        return "<span " + dataWidth +">![" + (obj.alt || '') + "](" + (obj.image || '') + ")</span>";
+        var image = obj.image && obj.image.slice(1);
+        return "<span " + dataWidth +">![" + (obj.alt || '') + "](" + (image || '') + ")</span>";
       },
       toPreview: function(obj, getAsset) {
         return (
