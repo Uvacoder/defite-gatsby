@@ -36,7 +36,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         createPage({
           path: node.frontmatter.path,
-          component: path.resolve(`./src/templates/${templateName}/${templateName}.js`)
+          component: path.resolve(`./src/templates/${templateName}/${templateName}.jsx`)
         })
       })
       resolve()

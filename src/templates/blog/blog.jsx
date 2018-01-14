@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "gatsby-link"
-import styles from "./blog.module.css"
+import React from 'react';
+import Link from 'gatsby-link';
+import styles from './blog.module.css';
 
 export default ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
@@ -10,18 +10,18 @@ export default ({ data }) => {
       { posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node }) => (
         <div key={node.id}>
 
-          <h2 className={ styles.title }>
+          <h2 className={styles.title}>
             <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </h2>
-          <span className={ styles.pubdate }>{node.frontmatter.date}</span>
+          <span className={styles.pubdate}>{node.frontmatter.date}</span>
 
           <p>{node.excerpt}</p>
         </div>
       ))}
 
     </div>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query BlogPostsQuery {
