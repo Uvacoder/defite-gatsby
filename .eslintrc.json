@@ -1,5 +1,9 @@
 {
-  "globals": {
-    "graphql": true
-  }
+    "globals": {
+      "graphql": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "import/no-extraneous-dependencies": "off"
+    }
 }

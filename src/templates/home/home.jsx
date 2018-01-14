@@ -1,8 +1,14 @@
-import React, { Component } from "react"
-import Script from 'react-load-script'
-import styles from './home.module.css'
+import React, { Component } from 'react';
+import Script from 'react-load-script';
+import styles from './home.module.css';
 
 export default class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleScriptLoad = this.handleScriptLoad.bind(this)
+  }
+
   handleScriptLoad() {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on('init', user => {
@@ -19,14 +25,14 @@ export default class IndexPage extends Component {
   render() {
     const { data: { markdownRemark } } = this.props;
     return (
-      <section className={ styles.intro }>
+      <section className={styles.intro}>
         <Script
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          onLoad={this.handleScriptLoad.bind(this)}
+          onLoad={this.handleScriptLoad}
         />
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </section>
-    )
+    );
   }
 }
 
