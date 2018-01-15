@@ -7,6 +7,9 @@ Personal site built on [Gatsby](https://www.gatsbyjs.org/) ~~with integrated [Ne
 ## Running in development
 `gatsby develop`
 
+## Running eslint
+`npm run eslint`
+
 ## Building prod version
 `gatsby build`
 
