@@ -1,6 +1,12 @@
 {
   "name": "gatsby-defite",
+  "version": "0.0.1",
   "description": "Personal site built on Gatsby",
+  "homepage": "https://github.com/defite/defite-gatsby",
+  "bugs": {
+    "url" : "https://github.com/defite/defite-gatsby/issues",
+    "email" : "me@defite.ru"
+  },
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
