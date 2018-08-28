@@ -9,5 +9,9 @@
     width: 100vw;
     margin-right: -50vw;
     margin-left: -50vw;
+
+    .gatsby-resp-image-wrapper {
+      max-width: 100% !important;
+    }
   }
 }

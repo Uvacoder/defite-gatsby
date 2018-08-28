@@ -1,15 +1,31 @@
 module.exports = {
   siteMetadata: {
-    logoTitle: `Nikita Makhov`,
-    pageTitle: `Front-end Developer`
+    title: 'Nikita Makhov',
+    author: 'Nikita Makhov',
+    description: 'Frontend developer blog',
+    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`postcss-preset-env`)(
+            { 
+              stage: 2,
+              features: {
+                'nesting-rules': true
+              }
+            }
+          )
+        ],
       },
     },
     {
@@ -19,29 +35,49 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1440,
-              linkImagesToOriginal: false,
-              sizeByPixelDensity: false,
-              backgroundColor: 'transparent'
+              maxWidth: 2560,
             },
-          }
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
+    `gatsby-plugin-feed`,
     {
-      resolve: `gatsby-plugin-react-css-modules`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        // Exclude global styles from the plugin using a RegExp:
-        exclude: `\/global\/`,
+        name: `Nikita Makhov`,
+        short_name: `Defite.ru`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/assets/gatsby-icon.png`,
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography',
+      },
+    }
   ],
-};
+}

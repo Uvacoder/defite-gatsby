@@ -2,6 +2,11 @@ body {
   color: #3e3e3e;
 }
 
+html {
+  overflow-y: initial;
+  overflow-x: hidden;
+}
+
 .wrapper {
   max-width: 960px;
   margin: 0 auto;

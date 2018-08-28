@@ -1,19 +1,9 @@
-# Defite-gatsby
-Personal site built on [Gatsby](https://www.gatsbyjs.org/) ~~with integrated [Netlify CMS](https://github.com/netlify/netlify-cms)~~.
+# gatsby-starter-blog
+Gatsby starter for creating a blog
 
-![Personal site built on Gatsby](https://user-images.githubusercontent.com/299118/34795082-e5ea3b58-f661-11e7-8d50-b678f5e77db9.png)
+Install this starter (assuming Gatsby is installed) by running from your CLI:
 
+`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
 
 ## Running in development
 `gatsby develop`
-
-## Running eslint
-`npm run eslint`
-
-## Building prod version
-`gatsby build`
-
-## Running prod version
-`gatsby serve`
-
-PR and issues are welcome!

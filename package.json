@@ -1,40 +1,63 @@
 {
-  "name": "gatsby-defite",
-  "version": "0.0.1",
-  "description": "Personal site built on Gatsby",
-  "homepage": "https://github.com/defite/defite-gatsby",
+  "name": "defite-gatsby-v2",
+  "description": "Nikita Makhov",
+  "version": "1.0.0",
+  "author": "Nikita Makhov <me@defite.ru>",
   "bugs": {
-    "url" : "https://github.com/defite/defite-gatsby/issues",
-    "email" : "me@defite.ru"
-  },
-  "license": "MIT",
-  "scripts": {
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "eslint": "./node_modules/.bin/eslint src/; exit 0"
+    "url": "https://github.com/Defite/defite-gatsby/issues"
   },
   "dependencies": {
-    "gatsby": "^1.9.145",
-    "gatsby-link": "^1.6.32",
-    "gatsby-plugin-react-css-modules": "^1.0.11",
-    "gatsby-plugin-react-helmet": "^2.0.3",
-    "gatsby-plugin-sharp": "^1.6.24",
-    "gatsby-plugin-typography": "^1.7.10",
-    "gatsby-remark-copy-linked-files": "^1.5.25",
-    "gatsby-remark-images": "^1.5.36",
-    "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.26",
-    "gatsby-transformer-sharp": "^1.6.16",
+    "gatsby": "next",
+    "gatsby-plugin-feed": "next",
+    "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-postcss": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-plugin-typography": "next",
+    "gatsby-remark-copy-linked-files": "next",
+    "gatsby-remark-images": "next",
+    "gatsby-remark-prismjs": "next",
+    "gatsby-remark-responsive-iframe": "next",
+    "gatsby-remark-smartypants": "next",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-remark": "next",
+    "gatsby-transformer-sharp": "next",
+    "lodash": "^4.17.5",
+    "prismjs": "^1.15.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
-    "react-load-script": "0.0.6",
+    "react-typography": "^0.16.13",
+    "typeface-merriweather": "0.0.54",
+    "typography": "^0.16.17",
     "typography-theme-parnassus": "^0.15.10"
   },
   "devDependencies": {
-    "eslint": "^4.15.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "gh-pages": "^1.1.0",
+    "postcss-preset-env": "^5.3.0",
+    "prettier": "^1.12.0"
+  },
+  "homepage": "https://github.com/Defite/defite-gatsby#readme",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Defite/defite-gatsby.git"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
