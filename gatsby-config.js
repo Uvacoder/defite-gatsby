@@ -14,21 +14,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require(`postcss-preset-env`)(
-            { 
-              stage: 2,
-              features: {
-                'nesting-rules': true
-              }
-            }
-          )
-        ],
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -78,6 +63,21 @@ module.exports = {
       options: {
         pathToConfigModule: 'src/utils/typography',
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`postcss-preset-env`)(
+            { 
+              stage: 3,
+              features: {
+                'nesting-rules': true
+              }
+            }
+          )
+        ],
+      },
+    },
   ],
 }
