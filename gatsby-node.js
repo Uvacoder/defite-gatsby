@@ -7,8 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     resolve(
-      graphql(
-        `
+      graphql(`
           {
             site {
               siteMetadata {
@@ -32,26 +31,26 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-        `,
-      ).then((result) => {
-        if (result.errors) {
-          /* eslint-disable no-console */
-          console.log(result.errors);
-          reject(result.errors);
-        }
+        `)
+        .then((result) => {
+          if (result.errors) {
+            /* eslint-disable no-console */
+            console.log(result.errors);
+            reject(result.errors);
+          }
 
-        result.data.allMarkdownRemark.edges.map(({ node }) => {
-          const templateName = String(node.frontmatter.templateKey);
-          return createPage({
-            path: node.frontmatter.path,
-            context: {
-              slug: node.fields.slug,
-            },
-            component: path.resolve(`./src/templates/${templateName}.jsx`),
+          result.data.allMarkdownRemark.edges.map(({ node }) => {
+            const templateName = String(node.frontmatter.templateKey);
+            return createPage({
+              path: node.frontmatter.path,
+              context: {
+                slug: node.fields.slug,
+              },
+              component: path.resolve(`./src/templates/${templateName}.jsx`),
+            });
           });
-        });
-        resolve();
-      }),
+          resolve();
+        }),
     );
   });
 };
