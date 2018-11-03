@@ -1,3 +1,5 @@
+const postcssPresetEnv = require('postcss-preset-env');
+
 module.exports = {
   siteMetadata: {
     title: 'Nikita Makhov',
@@ -7,26 +9,26 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src`,
         name: 'pages',
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 2560,
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
           'gatsby-remark-prismjs',
@@ -35,29 +37,23 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-feed',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        name: 'Nikita Makhov',
+        short_name: 'Defite.ru',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/assets/gatsby-icon.png',
       },
     },
-    `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Nikita Makhov`,
-        short_name: `Defite.ru`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -65,19 +61,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: 'gatsby-plugin-postcss',
       options: {
         postCssPlugins: [
-          require(`postcss-preset-env`)(
-            { 
-              stage: 3,
-              features: {
-                'nesting-rules': true
-              }
-            }
-          )
+          postcssPresetEnv({
+            stage: 3,
+            features: {
+              'nesting-rules': true,
+            },
+          }),
         ],
       },
     },
   ],
-}
+};

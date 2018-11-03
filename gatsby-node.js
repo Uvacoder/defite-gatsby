@@ -1,10 +1,9 @@
-const _ = require('lodash')
-const Promise = require('bluebird')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const Promise = require('bluebird');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -33,40 +32,40 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-        `
-      ).then(result => {
+        `,
+      ).then((result) => {
         if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          /* eslint-disable no-console */
+          console.log(result.errors);
+          reject(result.errors);
         }
 
         result.data.allMarkdownRemark.edges.map(({ node }) => {
           const templateName = String(node.frontmatter.templateKey);
-  
-          createPage({
+          return createPage({
             path: node.frontmatter.path,
             context: {
               slug: node.fields.slug,
             },
-            component: path.resolve(`./src/templates/${templateName}.js`)
-          })
-        })
-        resolve()
-      })
-    )
-  })
-}
+            component: path.resolve(`./src/templates/${templateName}.jsx`),
+          });
+        });
+        resolve();
+      }),
+    );
+  });
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
 
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
-    })
+    });
   }
-}
+};
