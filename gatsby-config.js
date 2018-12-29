@@ -5,7 +5,7 @@ module.exports = {
     title: 'Nikita Makhov',
     author: 'Nikita Makhov',
     description: 'Frontend developer blog',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    siteUrl: 'https://defite.ru',
   },
   plugins: [
     {
