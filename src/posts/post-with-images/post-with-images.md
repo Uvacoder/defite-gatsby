@@ -1,10 +1,14 @@
 ---
 templateKey: blog-post
-path: /post-with-images
+path: /blog/post-with-images
 title: Post with images
+excerpt: Тестовый пост с картинками
 date: 2018-08-28T21:57:48.831Z
 ---
-<span data-width="full">![Full width image](./cornelius-dammrich-52hz-shot-a-web-high.jpg)</span>
+
+<div class="full-image"></div>
+
+![Full width image](./cornelius-dammrich-52hz-shot-a-web-high.jpg)
 
 I can do posts with full width images like this or paste ordinary images that will fit content.
 

@@ -17,28 +17,36 @@ export const BlogIndex = (props) => {
   return (
     <Layout location={location}>
       <Helmet
-        htmlAttributes={{ lang: 'en' }}
+        htmlAttributes={{ lang: 'en', class: 'blog' }}
         meta={[{ name: 'description', content: siteDescription }]}
         title={siteTitle}
       />
-      {posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node }) => {
-        const title = get(node, 'frontmatter.title') || node.fields.slug;
-        return (
-          <div key={node.fields.slug}>
-            <h2
-              style={{
-                marginBottom: rhythm(1 / 4),
-              }}
-            >
-              <Link style={{ boxShadow: 'none' }} to={node.frontmatter.path}>
-                {title}
-              </Link>
-            </h2>
-            <small>{node.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        );
-      })}
+      <div className="grid">
+        <div className="grid-inner">
+          <section className="blog-list">
+            {posts.filter(post => post.node.frontmatter.templateKey === 'blog-post').map(({ node }) => {
+              const title = get(node, 'frontmatter.title') || node.fields.slug;
+              const excerpt = get(node, 'frontmatter.excerpt') || '';
+
+              return (
+                <div key={node.fields.slug}>
+                  <h2
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    <Link style={{ boxShadow: 'none' }} to={node.frontmatter.path}>
+                      {title}
+                    </Link>
+                  </h2>
+                  <small>{node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+                </div>
+              );
+            })}
+          </section>
+        </div>
+      </div>
     </Layout>
   );
 };
@@ -74,6 +82,7 @@ export const pageQuery = graphql`
             title,
             templateKey
             path
+            excerpt
           }
         }
       }

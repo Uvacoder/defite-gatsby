@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
               path: node.frontmatter.path,
               context: {
                 slug: node.fields.slug,
+                pageType: node.frontmatter.templateKey
               },
               component: path.resolve(`./src/templates/${templateName}.jsx`),
             });

@@ -1,7 +1,8 @@
 ---
 templateKey: blog-post
-path: /hello-world
+path: /blog/hello-world
 title: Hello World
+excerpt: Первый пост и пара слов о Netlify, Eslint и Codacy
 date: "2018-11-04T00:29:09.284Z"
 ---
 

@@ -17,59 +17,37 @@ export const BlogPostTemplate = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const siteDescription = post.excerpt;
 
+  const headerImage = get(props, 'data.markdownRemark.frontmatter.headerImage.childImageSharp.fluid') || {};
+  const { src: headerImageSrc, srcSet:  headerImageSrcSet } = headerImage;
+  
   /* eslint-disable react/no-danger */
   return (
     <Layout location={location}>
       <Helmet
-        htmlAttributes={{ lang: 'en' }}
+        htmlAttributes={{ lang: 'en', class: 'blog-post' }}
         meta={[{ name: 'description', content: siteDescription }]}
         title={`${post.frontmatter.title} | ${siteTitle}`}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: 'block',
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        {post.frontmatter.date}
-      </p>
-      <div className={styles.post} dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
+      
+        <div className={styles.post}>
 
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          listStyle: 'none',
-          padding: 0,
-        }}
-      >
-        {previous && (
-          <li>
-            <Link to={previous.fields.slug} rel="prev">
-              ←
-              {previous.frontmatter.title}
-            </Link>
-          </li>
-        )}
+          <header className={styles.header}>
+            <h1 className={styles.h1}>{post.frontmatter.title}</h1>
+            <p
+              style={{
+                ...scale(-1 / 5),
+                display: 'block',
+                marginBottom: rhythm(1),
+                marginTop: rhythm(-1),
+              }}
+            >
+              {post.frontmatter.date}
+            </p>
+          </header>
 
-        {next && (
-          <li>
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title}
-              →
-            </Link>
-          </li>
-        )}
-      </ul>
+          <div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
+      
     </Layout>
   );
 };

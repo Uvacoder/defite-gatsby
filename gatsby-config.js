@@ -1,4 +1,8 @@
 const postcssPresetEnv = require('postcss-preset-env');
+const fs = require('fs');
+const fetch = require('node-fetch');
+const { buildClientSchema } = require('graphql');
+const { createHttpLink } = require('apollo-link-http');
 
 module.exports = {
   siteMetadata: {
@@ -19,6 +23,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          "gatsby-remark-unwrap-images",
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -33,7 +38,7 @@ module.exports = {
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
+          'gatsby-remark-smartypants'
         ],
       },
     },
@@ -73,5 +78,24 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `github`,
+        typeName: `GitHub`,
+        createLink: () =>
+          createHttpLink({
+            uri: `https://api.github.com/graphql`,
+            headers: {
+              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+            },
+            fetch,
+          }),
+        // createSchema: async () => {
+        //   const json = JSON.parse(fs.readFileSync(`${__dirname}/github.json`))
+        //   return buildClientSchema(json.data)
+        // },
+      },
+    }
   ],
 };

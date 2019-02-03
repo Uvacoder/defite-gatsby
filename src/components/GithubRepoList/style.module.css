@@ -1,0 +1,17 @@
+.github {
+    grid-column: 2 / 12;
+}
+
+.list {
+    /* display: grid;
+    grid-template-columns: repeat(12, 1fr); */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 3em 5em;
+    
+}
+
+.repo {
+    flex: 1 50%;
+}

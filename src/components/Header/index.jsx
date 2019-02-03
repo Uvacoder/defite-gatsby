@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import styles from './layout.module.css';
+import styles from './header.module.css';
 
 export const Header = (props) => {
   const { title } = props;
@@ -11,11 +11,13 @@ export const Header = (props) => {
       <h3 className={styles.logo}>
         <Link to="/">{title}</Link>
       </h3>
-      <ul className={styles.menu}>
-        <Link className={styles.menuItem} to="/">Home</Link>
-        <Link className={styles.menuItem} to="/blog/">Blog</Link>
-        <Link className={styles.menuItem} to="/about/">About</Link>
-      </ul>
+      <nav className={styles.nav}>
+        <ul className={styles.menu}>
+          <Link className={styles.menuItem} to="/">Home</Link>
+          <Link className={styles.menuItem} to="/blog/">Blog</Link>
+          <Link className={styles.menuItem} to="/about/">About</Link>
+        </ul>
+      </nav>
     </header>
   );
 };

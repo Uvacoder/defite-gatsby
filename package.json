@@ -14,14 +14,18 @@
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-postcss": "next",
     "gatsby-plugin-react-helmet": "next",
-    "gatsby-plugin-sharp": "next",
+    "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-typography": "next",
     "gatsby-remark-copy-linked-files": "next",
     "gatsby-remark-images": "next",
     "gatsby-remark-prismjs": "next",
     "gatsby-remark-responsive-iframe": "next",
     "gatsby-remark-smartypants": "next",
+    "gatsby-remark-picture": "1.0.1",
+    "gatsby-remark-unwrap-images": "1.0.1",
     "gatsby-source-filesystem": "next",
+    "gatsby-source-github-api": "0.0.3",
+    "gatsby-source-graphql": "^2.0.8",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.5",
@@ -59,10 +63,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   }
 }

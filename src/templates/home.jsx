@@ -3,26 +3,33 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+
 import Layout from '../components/layout';
+import GithubRepoList from '../components/GithubRepoList/';
 
 import styles from './home.module.css';
 
 export const IndexPage = (props) => {
-  const { data: { markdownRemark }, location } = props;
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const siteDescription = get(props, 'data.site.siteMetadata.description');
+  const { data, data: { markdownRemark }, location } = props;
+  const { title, description } = data.site.siteMetadata;
+  const { edges: repos } = data.github.viewer.pinnedRepositories;
 
   /* eslint-disable react/no-danger */
   return (
     <Layout location={location}>
       <Helmet
-        htmlAttributes={{ lang: 'en' }}
-        meta={[{ name: 'description', content: siteDescription }]}
-        title={siteTitle}
+        htmlAttributes={{ lang: 'en', class: 'home' }}
+        meta={[{ name: 'description', content: description }]}
+        title={title}
       />
-      <section className={styles.intro}>
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-      </section>
+      <div className="grid-inner">
+        <section className={styles.intro}>
+          <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        </section>
+        <section className="grid">
+          <GithubRepoList repositories={repos} />
+        </section>
+      </div>
     </Layout>
   );
 };
@@ -55,6 +62,20 @@ export const pageQuery = graphql`
         title
         path
       }
+    }
+    github {
+      viewer {
+        name
+         pinnedRepositories(first:6) {
+            edges {
+              node {
+                name,
+                url,
+                descriptionHTML
+              }
+            }
+          }
+       }
     }
   }
 `;
