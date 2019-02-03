@@ -35,7 +35,6 @@
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "terser": "3.14",
     "typeface-merriweather": "0.0.54",
     "typography": "^0.16.17",
     "typography-theme-parnassus": "^0.15.10"
@@ -49,6 +48,9 @@
     "gh-pages": "^1.1.0",
     "postcss-preset-env": "^5.3.0",
     "prettier": "^1.12.0"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   },
   "homepage": "https://github.com/Defite/defite-gatsby#readme",
   "keywords": [
