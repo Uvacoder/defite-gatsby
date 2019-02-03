@@ -24,8 +24,7 @@
     "gatsby-remark-picture": "1.0.1",
     "gatsby-remark-unwrap-images": "1.0.1",
     "gatsby-source-filesystem": "next",
-    "gatsby-source-github-api": "0.0.3",
-    "gatsby-source-graphql": "^2.0.8",
+    "gatsby-source-graphql": "2.0.8",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "lodash": "^4.17.5",
@@ -61,7 +60,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "GITHUB_TOKEN=6f2311c82f5411a65ffcd5d3456435b2e19d94fe gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
