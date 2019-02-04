@@ -1,12 +1,7 @@
 .header {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-  
     margin: 0 0 1.5rem 0;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  
-    align-items: center;
   
     & a {
       text-decoration: none;
@@ -92,5 +87,28 @@
           text-decoration: underline;
         }
       }
+    }
+  }
+
+  @media (max-width: 425px) {
+    .header {
+        grid-gap: 10px 0;
+
+        & .logo,
+        & .nav {
+            grid-column: 1 / 13;
+        }
+    
+        & .logo {
+            font-size: 1.7rem;
+        }
+
+        & .menu {
+            float: none;
+
+            & .menuItem {
+                font-size: 1.2rem;
+            }
+        }
     }
   }

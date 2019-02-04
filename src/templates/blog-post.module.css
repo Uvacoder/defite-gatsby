@@ -27,10 +27,18 @@
 :global .gatsby-highlight {
   grid-column: 2 / 9;
   margin-bottom: 1.82rem;
+
+  @media (max-width: 425px) {
+    grid-column: 1 / 13;
+  }
 }
 
 :global .image-with-caption + table {
-  grid-column: 2 / 9
+  grid-column: 2 / 9;
+
+  @media (max-width: 425px) {
+    grid-column: 1 / 13;
+  }
 }
 
 :global .image-with-caption + table tbody td {
@@ -42,4 +50,12 @@
 
 :global .full-image + .gatsby-resp-image-link {
   grid-column: 1 / 13;
+}
+
+@media (max-width: 425px) {
+  .header,
+  .article *,
+  .article p {
+    grid-column: 1 / 13;
+  }
 }
