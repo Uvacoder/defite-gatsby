@@ -27,7 +27,7 @@
     "gatsby-source-graphql": "2.0.10",
     "gatsby-transformer-remark": "latest",
     "gatsby-transformer-sharp": "latest",
-    "lodash": "4.17.5",
+    "lodash": "^4.17.11",
     "postcss": "^7.0.2",
     "postcss-loader": "^3.0.0",
     "prismjs": "^1.15.0",
@@ -63,7 +63,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "GITHUB_TOKEN=6f2311c82f5411a65ffcd5d3456435b2e19d94fe gatsby develop",
+    "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
