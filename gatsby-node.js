@@ -1,11 +1,23 @@
 const Promise = require('bluebird');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { supportedLanguages } = require('./i18n');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
+    // Create index pages for all supported languages
+    Object.keys(supportedLanguages).forEach(langKey => {
+      createPage({
+        path: langKey === 'ru' ? '/' : `/${langKey}/`,
+        component: path.resolve('./src/templates/home.jsx'),
+        context: {
+          langKey,
+        },
+      });
+    });
+
     resolve(
       graphql(`
           {
@@ -26,6 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                   fields {
                     slug
+                    langKey
                   }
                 }
               }
@@ -40,7 +53,13 @@ exports.createPages = ({ graphql, actions }) => {
           }
 
           result.data.allMarkdownRemark.edges.map(({ node }) => {
+
+            if (!node.fields) {
+                return;
+            }
+
             const templateName = String(node.frontmatter.templateKey);
+
             return createPage({
               path: node.frontmatter.path,
               context: {
@@ -56,16 +75,16 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+// exports.onCreateNode = ({ node, actions, getNode }) => {
+//   const { createNodeField } = actions;
 
-  if (node.internal.type === 'MarkdownRemark') {
-    const value = createFilePath({ node, getNode });
+//   if (node.internal.type === 'MarkdownRemark') {
+//     const value = createFilePath({ node, getNode });
 
-    createNodeField({
-      name: 'slug',
-      node,
-      value,
-    });
-  }
-};
+//     createNodeField({
+//       name: 'slug',
+//       node,
+//       value,
+//     });
+//   }
+// };

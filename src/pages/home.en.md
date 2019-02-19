@@ -1,6 +1,6 @@
 ---
 templateKey: home
-path: /
+path: /en/
 title: Home
 ---
 # <span>Hi, I'm Nikita!</span>

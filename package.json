@@ -10,6 +10,7 @@
     "gatsby": "latest",
     "gatsby-plugin-feed": "latest",
     "gatsby-plugin-google-analytics": "latest",
+    "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-manifest": "latest",
     "gatsby-plugin-offline": "latest",
     "gatsby-plugin-postcss": "latest",
@@ -63,7 +64,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "GITHUB_TOKEN=0a771c814ee4ce51f83a6f7ac791a58804964083 gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"

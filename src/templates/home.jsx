@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
@@ -12,13 +11,15 @@ import styles from './home.module.css';
 export const IndexPage = (props) => {
   const { data, data: { markdownRemark }, location } = props;
   const { title, description } = data.site.siteMetadata;
+  const { langKey } = markdownRemark.fields;
+  
   const { edges: repos } = data.github.viewer.pinnedRepositories;
 
   /* eslint-disable react/no-danger */
   return (
-    <Layout location={location}>
+    <Layout location={location} lang={langKey} >
       <Helmet
-        htmlAttributes={{ lang: 'en', class: 'home' }}
+        htmlAttributes={{ lang: langKey, class: 'home' }}
         meta={[{ name: 'description', content: description }]}
         title={title}
       />
@@ -27,7 +28,7 @@ export const IndexPage = (props) => {
           <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         </section>
         <section className="grid">
-          <GithubRepoList repositories={repos} />
+          <GithubRepoList repositories={repos} lang={langKey}  />
         </section>
       </div>
     </Layout>
@@ -58,6 +59,9 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      fields {
+        langKey
+      }
       frontmatter {
         title
         path

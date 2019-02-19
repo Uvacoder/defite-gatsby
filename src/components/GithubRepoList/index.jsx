@@ -1,10 +1,10 @@
 import React from "react";
-
+import translate from './github.lang';
 import styles from './style.module.css';
 
-const GithubRepoList = ({ repositories }) => (
+const GithubRepoList = ({ repositories, lang }) => (
   <section className={styles.github}>
-    <h1>My Github projects</h1>
+    <h1>{ translate[lang].title }</h1>
     <div className={styles.list}>
       {repositories.map((repository, i) => (
         <div className={styles.repo} key={`repo-${i}`}>
@@ -14,6 +14,6 @@ const GithubRepoList = ({ repositories }) => (
       ))}
     </div>
   </section>
-)
+);
 
 export default GithubRepoList;

@@ -22,9 +22,15 @@ export const Template = (props) => {
             }
           }
         `}
-        render={data => (
-          <Header title={data.site.siteMetadata.title} />
-        )}
+        render={data => {
+          const { title } = data.site.siteMetadata;
+          const langKey = props.lang;
+          // const langKey = data.markdownRemark.fields;
+
+          return (
+            <Header title={title} lang={{ langKey }} />
+          )
+        }}
       />
         {children}
     </div>

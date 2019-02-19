@@ -91,6 +91,13 @@ module.exports = {
             fetch,
           }),
       },
-    }
+    },
+    {
+        resolve: 'gatsby-plugin-i18n',
+        options: {        
+          langKeyDefault: 'ru',
+          useLangKeyLayout: false
+        }
+      }
   ],
 };
