@@ -5,10 +5,10 @@ import styles from './header.module.css';
 import translate from './header.lang';
 
 export const Header = (props) => {
-    const { /*title,*/ lang } = props;
-    const langPref = (lang.langKey === 'en' ? '/en' : '');
-    const currLang = translate[lang.langKey];
-    
+	const { lang } = props;
+	const langPref = lang.langKey === 'en' ? '/en' : '';
+	const currLang = translate[lang.langKey];
+
 	return (
 		<header className={styles.header}>
 			<h3 className={styles.logo}>
@@ -32,13 +32,13 @@ export const Header = (props) => {
 };
 
 Header.defaultProps = {
-	title: 'Nikita Makhov',
-	lang: 'ru'
+	lang: 'ru',
 };
 
 Header.propTypes = {
-	title: PropTypes.string,
-	lang: PropTypes.object
+	lang: PropTypes.shape({
+		langKey: PropTypes.string,
+	}),
 };
 
 export default Header;

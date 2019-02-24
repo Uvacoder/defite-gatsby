@@ -1,14 +1,12 @@
 const Promise = require('bluebird');
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const { supportedLanguages } = require('./i18n');
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+	const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(`
+	return new Promise((resolve, reject) => {
+		resolve(
+			graphql(`
           {
             site {
               siteMetadata {
@@ -33,37 +31,35 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-        `)
-        .then((result) => {
-          if (result.errors) {
-            /* eslint-disable no-console */
-            console.log(result.errors);
-            reject(result.errors);
-          }
+        `).then((result) => {
+				if (result.errors) {
+					/* eslint-disable no-console */
+					console.log(result.errors);
+					reject(result.errors);
+				}
 
-          result.data.allMarkdownRemark.edges.map(({ node }) => {
+				result.data.allMarkdownRemark.edges.map(({ node }) => {
+					if (!node.fields) {
+						return false;
+					}
 
-            if (!node.fields) {
-                return;
-            }
+					const templateName = String(node.frontmatter.templateKey);
+					const { langKey } = node.fields;
 
-            const templateName = String(node.frontmatter.templateKey);
-            const { langKey } = node.fields;
-
-            return createPage({
-              path: node.frontmatter.path,
-              context: {
-                slug: node.fields.slug,
-                pageType: node.frontmatter.templateKey,
-                langKey
-              },
-              component: path.resolve(`./src/templates/${templateName}.jsx`),
-            });
-          });
-          resolve();
-        }),
-    );
-  });
+					return createPage({
+						path: node.frontmatter.path,
+						context: {
+							slug: node.fields.slug,
+							pageType: node.frontmatter.templateKey,
+							langKey,
+						},
+						component: path.resolve(`./src/templates/${templateName}.jsx`),
+					});
+				});
+				resolve();
+			}),
+		);
+	});
 };
 
 // exports.onCreateNode = ({ node, actions, getNode }) => {

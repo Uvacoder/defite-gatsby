@@ -21,7 +21,7 @@ export const BlogPostTemplate = (props) => {
 		<Layout location={location} lang={langKey}>
 			<Helmet
 				htmlAttributes={{ lang: langKey, class: 'blog-post' }}
-				meta={[ { name: 'description', content: siteDescription } ]}
+				meta={[{ name: 'description', content: siteDescription }]}
 				title={`${post.frontmatter.title} | ${siteTitle}`}
 			/>
 
@@ -33,7 +33,7 @@ export const BlogPostTemplate = (props) => {
 							...scale(-1 / 5),
 							display: 'block',
 							marginBottom: rhythm(1),
-							marginTop: rhythm(-1)
+							marginTop: rhythm(-1),
 						}}
 					>
 						{post.frontmatter.date}
@@ -49,12 +49,12 @@ export const BlogPostTemplate = (props) => {
 /* eslint-disable react/forbid-prop-types */
 BlogPostTemplate.defaultProps = {
 	data: {},
-	location: {}
+	location: {},
 };
 
 BlogPostTemplate.propTypes = {
 	data: PropTypes.object,
-	location: PropTypes.object
+	location: PropTypes.object,
 };
 
 export default BlogPostTemplate;

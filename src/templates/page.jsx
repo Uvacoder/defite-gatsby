@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
-import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import { rhythm, scale } from '../utils/typography';
 
 export const PageTemplate = (props) => {
-	const { data: { markdownRemark: post }, pageContext: { previous, next, pageType }, location } = props;
-
-	const siteTitle = get(props, 'data.site.siteMetadata.title');
+	const { data, pageContext, location } = props;
+	const { markdownRemark: post, site } = data;
+	const { pageType } = pageContext;
+	const { title: siteTitle } = site.siteMetadata;
 	const siteDescription = post.excerpt;
-
-    const { langKey } = post.fields;
+	const { langKey } = post.fields;
 
 	/* eslint-disable react/no-danger */
 	return (
 		<Layout location={location} lang={langKey}>
 			<Helmet
 				htmlAttributes={{ lang: langKey, class: `${pageType}` }}
-				meta={[ { name: 'description', content: siteDescription } ]}
+				meta={[{ name: 'description', content: siteDescription }]}
 				title={`${post.frontmatter.title} | ${siteTitle}`}
 			/>
 			<div className="grid">
@@ -31,7 +30,7 @@ export const PageTemplate = (props) => {
 							...scale(-1 / 5),
 							display: 'block',
 							marginBottom: rhythm(1),
-							marginTop: rhythm(-1)
+							marginTop: rhythm(-1),
 						}}
 					>
 						{post.frontmatter.date}
@@ -39,7 +38,7 @@ export const PageTemplate = (props) => {
 					<div dangerouslySetInnerHTML={{ __html: post.html }} />
 					<hr
 						style={{
-							marginBottom: rhythm(1)
+							marginBottom: rhythm(1),
 						}}
 					/>
 				</div>
@@ -52,13 +51,13 @@ export const PageTemplate = (props) => {
 PageTemplate.defaultProps = {
 	data: {},
 	location: {},
-	pageContext: {}
+	pageContext: {},
 };
 
 PageTemplate.propTypes = {
 	data: PropTypes.object,
 	location: PropTypes.object,
-	pageContext: PropTypes.object
+	pageContext: PropTypes.object,
 };
 
 export default PageTemplate;
@@ -78,10 +77,10 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				date(formatString: "MMMM DD, YYYY")
-            }
-            fields {
-                langKey
-            }
+			}
+			fields {
+				langKey
+			}
 		}
 	}
 `;
