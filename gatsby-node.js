@@ -7,17 +7,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    // Create index pages for all supported languages
-    Object.keys(supportedLanguages).forEach(langKey => {
-      createPage({
-        path: langKey === 'ru' ? '/' : `/${langKey}/`,
-        component: path.resolve('./src/templates/home.jsx'),
-        context: {
-          langKey,
-        },
-      });
-    });
-
     resolve(
       graphql(`
           {
@@ -59,12 +48,14 @@ exports.createPages = ({ graphql, actions }) => {
             }
 
             const templateName = String(node.frontmatter.templateKey);
+            const { langKey } = node.fields;
 
             return createPage({
               path: node.frontmatter.path,
               context: {
                 slug: node.fields.slug,
-                pageType: node.frontmatter.templateKey
+                pageType: node.frontmatter.templateKey,
+                langKey
               },
               component: path.resolve(`./src/templates/${templateName}.jsx`),
             });
@@ -81,7 +72,7 @@ exports.createPages = ({ graphql, actions }) => {
 //   if (node.internal.type === 'MarkdownRemark') {
 //     const value = createFilePath({ node, getNode });
 
-//     createNodeField({
+//     return createNodeField({
 //       name: 'slug',
 //       node,
 //       value,

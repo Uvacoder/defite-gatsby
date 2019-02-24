@@ -1,6 +1,6 @@
 ---
 templateKey: page
 path: /about
-title: About
+title: Обо мне
 ---
 Typical 'About me' page, will fill it later.

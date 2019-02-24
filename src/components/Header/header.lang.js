@@ -9,6 +9,6 @@ export default {
         title: 'Nikita Makhov',
         home: 'Home',
         blog: 'Blog',
-        about: 'ABout'
+        about: 'About'
     }
 };

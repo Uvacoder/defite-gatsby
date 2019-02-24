@@ -96,7 +96,8 @@ module.exports = {
         resolve: 'gatsby-plugin-i18n',
         options: {        
           langKeyDefault: 'ru',
-          useLangKeyLayout: false
+          useLangKeyLayout: false,
+          pagesPaths: ['/pages/', '/posts/']
         }
       }
   ],
