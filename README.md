@@ -1,4 +1,7 @@
 # Defite-gatsby
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e3d84e9390ef4f52b6e728f0d78c573d)](https://app.codacy.com/app/Defite/defite-gatsby?utm_source=github.com&utm_medium=referral&utm_content=Defite/defite-gatsby&utm_campaign=Badge_Grade_Settings)
+
 Personal site built on [Gatsby](https://www.gatsbyjs.org/) ~~with integrated [Netlify CMS](https://github.com/netlify/netlify-cms)~~.
 
 ![Personal site built on Gatsby](https://user-images.githubusercontent.com/299118/34795082-e5ea3b58-f661-11e7-8d50-b678f5e77db9.png)
