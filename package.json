@@ -66,7 +66,7 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public . --ignore-pattern cypress .",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "cypress:open": "cypress open"

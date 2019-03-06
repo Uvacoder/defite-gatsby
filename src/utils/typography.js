@@ -4,7 +4,7 @@ import Parnassus from 'typography-theme-parnassus';
 Parnassus.overrideThemeStyles = () => ({
 	'a.gatsby-resp-image-link': {
 		boxShadow: 'none',
-	}
+	},
 });
 
 Parnassus.headerFontFamily = ['Fira Sans', 'sans-serif'];

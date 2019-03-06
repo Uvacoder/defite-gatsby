@@ -64,19 +64,19 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-prefetch-google-fonts`,
+			resolve: 'gatsby-plugin-prefetch-google-fonts',
 			options: {
-			  fonts: [
-				{
-				  family: 'Fira Sans',
-				  subsets: ['cyrillic'],
-				  variants: ['600', '700', '800']
-				},
-				{
-				  family: 'Merriweather',
-				  variants: ['400', '700']
-				},
-			  ],
+				fonts: [
+					{
+						family: 'Fira Sans',
+						subsets: ['cyrillic'],
+						variants: ['600', '700', '800'],
+					},
+					{
+						family: 'Merriweather',
+						variants: ['400', '700'],
+					},
+				],
 			},
 		},
 		{
