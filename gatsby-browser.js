@@ -1,2 +1,2 @@
 // gatsby-browser.js
-require('prismjs/themes/prism-okaidia.css');
+import 'prismjs/themes/prism-okaidia.css';

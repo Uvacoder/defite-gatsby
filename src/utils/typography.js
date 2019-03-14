@@ -11,7 +11,7 @@ Parnassus.headerFontFamily = ['Fira Sans', 'sans-serif'];
 Parnassus.baseFontSize = '19px';
 Parnassus.headerWeight = '700';
 
-// delete Parnassus.googleFonts;
+delete Parnassus.googleFonts;
 
 const typography = new Typography(Parnassus);
 

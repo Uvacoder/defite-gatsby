@@ -16,15 +16,21 @@ export const Header = (props) => {
 			</h3>
 			<nav className={styles.nav}>
 				<ul className={styles.menu}>
-					<Link className={styles.menuItem} to={`${langPref}/`}>
-						{currLang.home}
-					</Link>
-					<Link className={styles.menuItem} to={`${langPref}/blog`}>
-						{currLang.blog}
-					</Link>
-					<Link className={styles.menuItem} to={`${langPref}/about`}>
-						{currLang.about}
-					</Link>
+					<li className={styles.menuItem}>
+						<Link  to={`${langPref}/`}>
+							{currLang.home}
+						</Link>
+					</li>
+					<li className={styles.menuItem}>
+						<Link to={`${langPref}/blog`}>
+							{currLang.blog}
+						</Link>
+					</li>
+					<li className={styles.menuItem}>
+						<Link to={`${langPref}/about`}>
+							{currLang.about}
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		</header>
