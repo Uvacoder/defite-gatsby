@@ -17,7 +17,7 @@ export const Header = (props) => {
 			<nav className={styles.nav}>
 				<ul className={styles.menu}>
 					<li className={styles.menuItem}>
-						<Link  to={`${langPref}/`}>
+						<Link to={`${langPref}/`}>
 							{currLang.home}
 						</Link>
 					</li>
