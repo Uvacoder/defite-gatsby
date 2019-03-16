@@ -67,9 +67,9 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "GITHUB_TOKEN=2b2fcb73c6320e74f090042fe207e92693d5c6bb gatsby develop",
+    "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public . --ignore-pattern cypress .",
-    "build": "GITHUB_TOKEN=2b2fcb73c6320e74f090042fe207e92693d5c6bb gatsby build",
+    "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "cypress:open": "cypress open"
   },
