@@ -60,7 +60,7 @@ BlogPostTemplate.propTypes = {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-	query BlogPostBySlug($path: String!) {
+	query BlogPostBySlug($langKey: String!, $path: String!) {
 		site {
 			siteMetadata {
 				title
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
-				date(formatString: "MMMM DD, YYYY")
+				date(formatString: "MMMM DD, YYYY", locale: $langKey)
 			}
 		}
 	}

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from 'gatsby';
 import styles from './header.module.css';
 import translate from './header.lang';
 
 export const Header = (props) => {
-	const { lang } = props;
+	const { lang, slug } = props;
 	const langPref = lang.langKey === 'en' ? '/en' : '';
+	const isRus = lang.langKey === 'ru';
+	const isEn = lang.langKey === 'en';
 	const currLang = translate[lang.langKey];
 
 	return (
@@ -30,6 +33,10 @@ export const Header = (props) => {
 						<Link to={`${langPref}/about`}>
 							{currLang.about}
 						</Link>
+					</li>
+					<li className={classNames(styles.menuItem, styles.languageSwitcher)}>
+						<Link className={isEn ? styles.active : ''} to={`en${slug}`}>en</Link>
+						<Link className={isRus ? styles.active : ''} to={slug}>рус</Link>
 					</li>
 				</ul>
 			</nav>

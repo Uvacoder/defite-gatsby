@@ -6,7 +6,8 @@ import Header from './Header';
 import styles from './layout.module.css';
 
 export const Template = (props) => {
-	const { children } = props;
+	const { children, location } = props;
+	const pathname = location.pathname.replace('/en/', '');
 
 	return (
 		<div className={styles.wrapper}>
@@ -24,7 +25,7 @@ export const Template = (props) => {
 					const { title } = data.site.siteMetadata;
 					const langKey = props.lang;
 
-					return <Header title={title} lang={{ langKey }} />;
+					return <Header title={title} lang={{ langKey }} slug={pathname} />;
 				}}
 			/>
 			{children}
