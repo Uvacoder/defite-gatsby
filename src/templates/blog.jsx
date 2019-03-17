@@ -27,7 +27,10 @@ export const BlogIndex = (props) => {
 				<div className="grid-inner">
 					<section className="blog-list">
 						{posts
-							.filter(post => post.node.frontmatter.templateKey === 'blog-post')
+							.filter((post) => {
+								const { templateKey, status } = post.node.frontmatter;
+								return templateKey === 'blog-post' && status !== 'draft';
+							})
 							.map(({ node }, index) => {
 								const postKey = `blog-post-${index}`;
 								const postTitle = get(node, 'frontmatter.title') || node.fields.slug;
@@ -95,6 +98,7 @@ export const pageQuery = graphql`
 						date(formatString: "DD MMMM, YYYY")
 						title
 						templateKey
+						status
 						path
 						excerpt
 					}

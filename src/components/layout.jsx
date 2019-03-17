@@ -7,7 +7,7 @@ import styles from './layout.module.css';
 
 export const Template = (props) => {
 	const { children, location } = props;
-	const pathname = location.pathname.replace('/en/', '');
+	const pathname = location.pathname.replace('/en/', '/');
 
 	return (
 		<div className={styles.wrapper}>

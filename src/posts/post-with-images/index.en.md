@@ -1,9 +1,10 @@
 ---
 templateKey: blog-post
-path: /blog/post-with-images
+path: /en/blog/post-with-images
 title: Post with images
 excerpt: Test post with images
 date: 2018-08-28T21:57:48.831Z
+status: draft
 ---
 
 <div class="full-image"></div>

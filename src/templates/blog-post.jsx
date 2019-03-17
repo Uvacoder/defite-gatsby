@@ -10,37 +10,47 @@ import styles from './blog-post.module.css';
 export const BlogPostTemplate = (props) => {
 	const { data, location } = props;
 	const { site, markdownRemark: post } = data;
+	const { title, status, date } = post.frontmatter;
 
 	const { title: siteTitle } = site.siteMetadata;
 	const siteDescription = post.excerpt;
 
 	const { langKey } = post.fields;
 
+	const errorTexts = {
+		en: 'Sorry, this post is not available, try another language.',
+		ru: 'Извините, этот пост еще не написан, попробуйте выбрать другой язык.',
+	};
 	/* eslint-disable react/no-danger */
 	return (
 		<Layout location={location} lang={langKey}>
 			<Helmet
 				htmlAttributes={{ lang: langKey, class: 'blog-post' }}
 				meta={[{ name: 'description', content: siteDescription }]}
-				title={`${post.frontmatter.title} | ${siteTitle}`}
+				title={`${title} | ${siteTitle}`}
 			/>
 
 			<div className={styles.post}>
 				<header className={styles.header}>
-					<h1 className={styles.h1}>{post.frontmatter.title}</h1>
-					<p
-						style={{
-							...scale(-1 / 5),
-							display: 'block',
-							marginBottom: rhythm(1),
-							marginTop: rhythm(-1),
-						}}
-					>
-						{post.frontmatter.date}
-					</p>
+					<h1 className={styles.h1}>{title}</h1>
+					{status !== 'draft' && (
+						<p
+							style={{
+								...scale(-1 / 5),
+								display: 'block',
+								marginBottom: rhythm(1),
+								marginTop: rhythm(-1),
+							}}
+						>
+							{date}
+						</p>
+					)
+					}
 				</header>
-
-				<div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />
+				{status !== 'draft'
+					? (<div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />)
+					: (<div className={styles.article}><p>{errorTexts[langKey]}</p></div>)
+				}
 			</div>
 		</Layout>
 	);
@@ -76,6 +86,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
+				status
 				date(formatString: "MMMM DD, YYYY", locale: $langKey)
 			}
 		}
