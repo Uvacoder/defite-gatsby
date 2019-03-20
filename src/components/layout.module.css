@@ -12,6 +12,10 @@ html {
   padding: 1.5em 1em;
 }
 
+h3 {
+  letter-spacing: 0.02em;
+}
+
 :global .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);

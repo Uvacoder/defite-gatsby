@@ -61,7 +61,7 @@
 
     & .menu {
   
-        font-family: 'Helvetica Neue', sans-serif;
+        font-family: 'Fira Sans', sans-serif;
         font-weight: bold;
 
         float:right;
@@ -84,7 +84,22 @@
         }
   
         & a:hover {
-          text-decoration: underline;
+          text-decoration: none;
+        }
+      }
+
+      & .languageSwitcher {
+        border: 2px solid orange;
+        display: inline;
+        padding: 5px 10px;
+        border-radius: 20px;
+
+        & a:first-child {
+          margin-right: 10px;
+        }
+
+        & .active {
+          color: orange;
         }
       }
     }

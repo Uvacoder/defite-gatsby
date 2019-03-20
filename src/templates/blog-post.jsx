@@ -1,91 +1,94 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
-import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import { rhythm, scale } from '../utils/typography';
 import styles from './blog-post.module.css';
 
 export const BlogPostTemplate = (props) => {
-  const {
-    data: { markdownRemark: post },
-    location,
-    pageContext: { next, previous },
-  } = props;
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const siteDescription = post.excerpt;
+	const { data, location } = props;
+	const { site, markdownRemark: post } = data;
+	const { title, status, date } = post.frontmatter;
 
-  const headerImage = get(props, 'data.markdownRemark.frontmatter.headerImage.childImageSharp.fluid') || {};
-  const { src: headerImageSrc, srcSet:  headerImageSrcSet } = headerImage;
-  
-  /* eslint-disable react/no-danger */
-  return (
-    <Layout location={location}>
-      <Helmet
-        htmlAttributes={{ lang: 'en', class: 'blog-post' }}
-        meta={[{ name: 'description', content: siteDescription }]}
-        title={`${post.frontmatter.title} | ${siteTitle}`}
-      />
-      
-        <div className={styles.post}>
+	const { title: siteTitle } = site.siteMetadata;
+	const siteDescription = post.excerpt;
 
-          <header className={styles.header}>
-            <h1 className={styles.h1}>{post.frontmatter.title}</h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: 'block',
-                marginBottom: rhythm(1),
-                marginTop: rhythm(-1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-          </header>
+	const { langKey } = post.fields;
 
-          <div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />
-        </div>
-      
-    </Layout>
-  );
+	const errorTexts = {
+		en: 'Sorry, this post is not available, try another language.',
+		ru: 'Извините, этот пост еще не написан, попробуйте выбрать другой язык.',
+	};
+	/* eslint-disable react/no-danger */
+	return (
+		<Layout location={location} lang={langKey}>
+			<Helmet
+				htmlAttributes={{ lang: langKey, class: 'blog-post' }}
+				meta={[{ name: 'description', content: siteDescription }]}
+				title={`${title} | ${siteTitle}`}
+			/>
+
+			<div className={styles.post}>
+				<header className={styles.header}>
+					<h1 className={styles.h1}>{title}</h1>
+					{status !== 'draft' && (
+						<p
+							style={{
+								...scale(-1 / 5),
+								display: 'block',
+								marginBottom: rhythm(1),
+								marginTop: rhythm(-1),
+							}}
+						>
+							{date}
+						</p>
+					)
+					}
+				</header>
+				{status !== 'draft'
+					? (<div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />)
+					: (<div className={styles.article}><p>{errorTexts[langKey]}</p></div>)
+				}
+			</div>
+		</Layout>
+	);
 };
 
 /* eslint-disable react/forbid-prop-types */
 BlogPostTemplate.defaultProps = {
-  data: {},
-  location: {},
-  pageContext: {},
+	data: {},
+	location: {},
 };
 
 BlogPostTemplate.propTypes = {
-  data: PropTypes.object,
-  location: PropTypes.object,
-  pageContext: PropTypes.object,
+	data: PropTypes.object,
+	location: PropTypes.object,
 };
 
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
-    }
-  }
+	query BlogPostBySlug($langKey: String!, $path: String!) {
+		site {
+			siteMetadata {
+				title
+				author
+			}
+		}
+		markdownRemark(frontmatter: { path: { eq: $path } }) {
+			id
+			excerpt
+			html
+			fields {
+				langKey
+			}
+			frontmatter {
+				title
+				status
+				date(formatString: "MMMM DD, YYYY", locale: $langKey)
+			}
+		}
+	}
 `;
