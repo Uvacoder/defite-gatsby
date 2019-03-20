@@ -95,7 +95,7 @@ export const pageQuery = graphql`
 						langKey
 					}
 					frontmatter {
-						date(formatString: "DD MMMM, YYYY")
+						date(formatString: "DD MMMM, YYYY", locale: $langKey)
 						title
 						templateKey
 						status
