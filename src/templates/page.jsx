@@ -30,7 +30,6 @@ export const PageTemplate = (props) => {
 							...scale(-1 / 5),
 							display: 'block',
 							marginBottom: rhythm(1),
-							marginTop: rhythm(-1),
 						}}
 					>
 						{post.frontmatter.date}

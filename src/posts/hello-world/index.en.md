@@ -6,14 +6,7 @@ excerpt: console.log('Hello world');
 date: "2018-01-02T08:45:09.284Z"
 ---
 
-Почти полгода провисел мой блог на Gatsby без движения, потом я перевел его на версию next, и вот наконец-то сегодня дошли руки, чтобы смержить ветку v2 в мастер. Правда, не обошлось без проблем:
+Hi! I'm Nikita and I'm front-end developer in [Mail.ru](https://mail.ru), where I do Mediaprojects better. In my spare time I code for fun and learn [Vue.js](https://vuejs.org/)  and backend-related things, such as Docker deploy with CI for example. I also code some secret project. I'm in love with my [Volvo](https://www.drive2.ru/r/volvo/v40_cross_country/480505823865339906/).
 
-![Failed checks](./failed-checks.png)
+I can't count how much blogs I had before this blog appeared. Countless number. But I can say for sure, that I'm no longer interested in big blog posts, because it's easier to write thoughts in [Twitter](https://twitter.com/life_maniac), than spend big amount of time to make really good post. But as soon as I have this blog, I'll give it a try 🙂.
 
-То есть смержить я все могу и задеплоить тоже, но проверки как бы намекают, что Eslint мною очень недоволен.
-
-Кстати, очень порадовала панель Netlify, в которой есть разбиение на деплои и превью, сразу видно, что, где и как:
-
-![Netlify dashboard](./netlify-panel.png)
-
-В итоге я потратил почти полтора часа на фикс 200+ замечаний Eslint, посмотрим, найдет ли их Codacy сейчас.
