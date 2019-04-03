@@ -8,7 +8,9 @@
       "config": { "distDir": "public" }
     }
   ],
-  "env": {
-    "APP_GITHUB_TOKEN": "@github-app-token"
+  "build": {
+    "env": {
+      "APP_GITHUB_TOKEN": "@github-app-token"
+    }
   }
 }
