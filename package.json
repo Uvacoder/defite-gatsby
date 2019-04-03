@@ -42,7 +42,6 @@
     "typography-theme-parnassus": "^0.15.10"
   },
   "devDependencies": {
-    "cypress": "^3.1.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -68,11 +67,10 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public . --ignore-pattern cypress .",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "now-build": "npm run build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "cypress:open": "cypress open"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "husky": {
     "hooks": {
