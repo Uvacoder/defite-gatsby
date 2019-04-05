@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "defite",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ],
+  "build": {
+    "env": {
+      "APP_GITHUB_TOKEN": "@github-app-token"
+    }
+  }
+}
