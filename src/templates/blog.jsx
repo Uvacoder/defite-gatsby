@@ -13,7 +13,7 @@ export const BlogIndex = (props) => {
 	const { title, description } = site.siteMetadata;
 	const posts = allMarkdownRemark.edges;
 	const { langKey } = pageContext;
-	const pageTitle = markdownRemark.frontmatter.title;
+	const pageTitle = 'Blog' || markdownRemark.frontmatter.title;
 
 	/* eslint-disable react/no-danger */
 	return (
@@ -71,7 +71,7 @@ BlogIndex.propTypes = {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-	query blogData($langKey: String!, $path: String!) {
+	query blogData($skip: Int!, $limit: Int!, $langKey: String!, $path: String!,) {
 		site {
 			siteMetadata {
 				title
@@ -84,8 +84,10 @@ export const pageQuery = graphql`
 			}
 		}
         allMarkdownRemark(
-			filter: { fields: { langKey: { eq: $langKey } } }
-			sort: { fields: [frontmatter___date], order: DESC }
+				filter: { fields: { langKey: { eq: $langKey } } }
+				sort: { fields: [frontmatter___date], order: DESC }
+				limit: $limit
+      			skip: $skip
 			) {
 			edges {
 				node {

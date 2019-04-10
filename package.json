@@ -9,6 +9,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "latest",
+    "gatsby-paginate": "^1.0.17",
     "gatsby-plugin-feed": "latest",
     "gatsby-plugin-google-analytics": "latest",
     "gatsby-plugin-i18n": "^0.4.2",
@@ -28,6 +29,7 @@
     "gatsby-remark-unwrap-images": "1.0.1",
     "gatsby-source-filesystem": "latest",
     "gatsby-source-graphql": "2.0.10",
+    "gatsby-source-sanity": "^2.0.3",
     "gatsby-transformer-remark": "latest",
     "gatsby-transformer-sharp": "latest",
     "lodash": "^4.17.11",
@@ -66,7 +68,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "APP_GITHUB_TOKEN=7c15ab2f5afb4e979aa6591d6e624be3d2f22e82 gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "now-build": "npm run build",
