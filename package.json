@@ -68,7 +68,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "APP_GITHUB_TOKEN=7c15ab2f5afb4e979aa6591d6e624be3d2f22e82 gatsby develop",
+    "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "build": "gatsby build",
     "now-build": "npm run build",

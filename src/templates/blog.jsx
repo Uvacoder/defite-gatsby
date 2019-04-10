@@ -26,32 +26,24 @@ export const BlogIndex = (props) => {
 			<div className="grid">
 				<div className="grid-inner">
 					<section className="blog-list">
-						{posts
-							.filter((post) => {
-								const { templateKey, status } = post.node.frontmatter;
-								return templateKey === 'blog-post' && status !== 'draft';
-							})
-							.map(({ node }, index) => {
-								const postKey = `blog-post-${index}`;
-								const postTitle = get(node, 'frontmatter.title') || node.fields.slug;
-								const excerpt = get(node, 'frontmatter.excerpt') || '';
-
-								return (
-									<div key={postKey}>
-										<h2
-											style={{
-												marginBottom: rhythm(1 / 4),
-											}}
-										>
-											<Link style={{ boxShadow: 'none' }} to={node.frontmatter.path}>
-												{postTitle}
-											</Link>
-										</h2>
-										<small>{node.frontmatter.date}</small>
-										<p dangerouslySetInnerHTML={{ __html: excerpt }} />
-									</div>
-								);
-							})}
+						{posts.map(({ node }) => {
+							const customTitle = node.frontmatter.title || node.fields.slug;
+							return (
+								<div key={node.fields.slug}>
+									<h3
+										style={{
+											marginBottom: rhythm(1 / 4),
+										}}
+									>
+										<Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+											{customTitle}
+										</Link>
+									</h3>
+									<small>{node.frontmatter.date}</small>
+									<p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+								</div>
+							);
+						})}
 					</section>
 				</div>
 			</div>
@@ -71,7 +63,7 @@ BlogIndex.propTypes = {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-	query blogData($skip: Int!, $limit: Int!, $langKey: String!, $path: String!,) {
+	query blogData($skip: Int!, $limit: Int!, $path: String!) {
 		site {
 			siteMetadata {
 				title
@@ -84,10 +76,10 @@ export const pageQuery = graphql`
 			}
 		}
         allMarkdownRemark(
-				filter: { fields: { langKey: { eq: $langKey } } }
+				filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
 				sort: { fields: [frontmatter___date], order: DESC }
 				limit: $limit
-      			skip: $skip
+				skip: $skip
 			) {
 			edges {
 				node {
@@ -97,7 +89,7 @@ export const pageQuery = graphql`
 						langKey
 					}
 					frontmatter {
-						date(formatString: "DD MMMM, YYYY", locale: $langKey)
+						date(formatString: "DD MMMM, YYYY")
 						title
 						templateKey
 						status

@@ -3,6 +3,8 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions;
 
+	const blogPost = path.resolve('./src/templates/blog-post.jsx');
+
 	await graphql(`
         {
             site {
@@ -11,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     author
                 }
             }
-            allMarkdownRemark(
+            allMarkdownRemark (
                 sort: { fields: [frontmatter___date], order: DESC }
                 limit: 1000
               ) {
@@ -21,8 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         frontmatter {
                             templateKey
                             path
-							title
-							status
+                            title
                         }
                         fields {
                             slug
@@ -33,21 +34,39 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         }
         `).then((result) => {
-		// Create blog-list pages
-		// const posts = result.data.allMarkdownRemark.edges;
+		// Create blog posts pages.
+		const posts = result.data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post');
 
-		const posts = result.data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post' && node.frontmatter.status !== 'draft');
+		posts.forEach((post, index) => {
+			const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+			const next = index === 0 ? null : posts[index - 1].node;
 
+
+			createPage({
+				path: post.node.fields.slug,
+				component: blogPost,
+				context: {
+					slug: post.node.fields.slug,
+					previous,
+					next,
+					langKey: post.node.fields.langKey,
+				},
+			});
+		});
+
+		// Create blog post list pages
 		const postsPerPage = 2;
 		const numPages = Math.ceil(posts.length / postsPerPage);
+
 		Array.from({ length: numPages }).forEach((_, i) => {
 			createPage({
-				path: i === 0 ? '/blog' : `/blog/${i + 1}`,
+				path: i === 0 ? '/blog' : `blog/${i + 1}`,
 				component: path.resolve('./src/templates/blog.jsx'),
 				context: {
 					limit: postsPerPage,
 					skip: i * postsPerPage,
-					langKey: 'ru',
+					numPages,
+					currentPage: i + 1,
 				},
 			});
 		});
@@ -60,17 +79,15 @@ exports.createPages = async ({ graphql, actions }) => {
 		// 	const templateName = String(node.frontmatter.templateKey);
 		// 	const { langKey } = node.fields;
 
-		// 	if (templateName === 'blog') {
-		// 		return createPage({
-		// 			path: node.frontmatter.path,
-		// 			context: {
-		// 				slug: node.fields.slug,
-		// 				pageType: node.frontmatter.templateKey,
-		// 				langKey,
-		// 			},
-		// 			component: path.resolve(`./src/templates/${templateName}.jsx`),
-		// 		});
-		// 	}
+		// 	return actions.createPage({
+		// 		path: node.frontmatter.path,
+		// 		context: {
+		// 			slug: node.fields.slug,
+		// 			pageType: node.frontmatter.templateKey,
+		// 			langKey,
+		// 		},
+		// 		component: path.resolve(`./src/templates/${templateName}.jsx`),
+		// 	});
 		// });
 	});
 };
