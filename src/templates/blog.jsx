@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import get from 'lodash/get';
 import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
+import BlogPagination from '../components/BlogPagination';
 import { rhythm } from '../utils/typography';
 
 export const BlogIndex = (props) => {
 	const { data, location, pageContext } = props;
-	const { site, markdownRemark, allMarkdownRemark } = data;
+	const { site, allMarkdownRemark } = data;
 	const { title, description } = site.siteMetadata;
 	const posts = allMarkdownRemark.edges;
-	const { langKey } = pageContext;
-	const pageTitle = 'Blog' || markdownRemark.frontmatter.title;
+	const {
+		langKey,
+		pageTitle,
+		currentPage,
+		numPages,
+	} = pageContext;
+	const langPrefix = langKey === 'en' ? 'en' : '';
 
 	/* eslint-disable react/no-danger */
 	return (
@@ -35,16 +40,22 @@ export const BlogIndex = (props) => {
 											marginBottom: rhythm(1 / 4),
 										}}
 									>
-										<Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+										<Link style={{ boxShadow: 'none' }} to={node.frontmatter.path}>
 											{customTitle}
 										</Link>
 									</h3>
 									<small>{node.frontmatter.date}</small>
-									<p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+									<p dangerouslySetInnerHTML={{ __html: node.frontmatter.excerpt }} />
 								</div>
 							);
 						})}
 					</section>
+
+					<BlogPagination
+						currentPage={currentPage}
+						numPages={numPages}
+						langPrefix={langPrefix}
+					/>
 				</div>
 			</div>
 		</Layout>
@@ -63,20 +74,18 @@ BlogIndex.propTypes = {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-	query blogData($skip: Int!, $limit: Int!, $path: String!) {
+	query blogData($skip: Int!, $limit: Int!, $langKey: String!) {
 		site {
 			siteMetadata {
 				title
 				description
 			}
 		}
-		markdownRemark(frontmatter: { path: { eq: $path } }) {
-			frontmatter {
-				title
-			}
-		}
-        allMarkdownRemark(
-				filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+		allMarkdownRemark(
+				filter: { 
+					frontmatter: { templateKey: { eq: "blog-post" } },
+					fields: { langKey: { eq: $langKey } },
+				}
 				sort: { fields: [frontmatter___date], order: DESC }
 				limit: $limit
 				skip: $skip

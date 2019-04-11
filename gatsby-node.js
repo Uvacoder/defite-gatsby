@@ -34,60 +34,69 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         }
         `).then((result) => {
-		// Create blog posts pages.
-		const posts = result.data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post');
+		const { edges } = result.data.allMarkdownRemark;
 
+		// Create blog posts pages.
+		const posts = edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post');
 		posts.forEach((post, index) => {
 			const previous = index === posts.length - 1 ? null : posts[index + 1].node;
 			const next = index === 0 ? null : posts[index - 1].node;
 
-
 			createPage({
-				path: post.node.fields.slug,
+				path: post.node.frontmatter.path,
 				component: blogPost,
 				context: {
 					slug: post.node.fields.slug,
 					previous,
 					next,
-					langKey: post.node.fields.langKey,
+					langKey: post.node.fields.langKey === 'en' ? 'en' : '',
 				},
 			});
 		});
 
 		// Create blog post list pages
 		const postsPerPage = 2;
-		const numPages = Math.ceil(posts.length / postsPerPage);
-
-		Array.from({ length: numPages }).forEach((_, i) => {
-			createPage({
-				path: i === 0 ? '/blog' : `blog/${i + 1}`,
-				component: path.resolve('./src/templates/blog.jsx'),
-				context: {
-					limit: postsPerPage,
-					skip: i * postsPerPage,
-					numPages,
-					currentPage: i + 1,
-				},
+		['ru', 'en'].forEach((lang) => {
+			const langPrefix = lang === 'en' ? 'en/' : '';
+			const blogPosts = edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post' && node.fields.langKey === lang);
+			const numPages = Math.ceil(blogPosts.length / postsPerPage);
+			Array.from({ length: numPages }).forEach((_, i) => {
+				createPage({
+					path: i === 0 ? `${langPrefix}blog` : `${langPrefix}blog/${i + 1}`,
+					component: path.resolve('./src/templates/blog.jsx'),
+					context: {
+						limit: postsPerPage,
+						skip: i * postsPerPage,
+						numPages,
+						currentPage: i + 1,
+						langKey: lang,
+						pageTitle: lang === 'en' ? 'Blog' : 'Блог',
+					},
+				});
 			});
 		});
 
-		// result.data.allMarkdownRemark.edges.map(({ node }) => {
-		// 	if (!node.fields) {
-		// 		return false;
-		// 	}
+		result.data.allMarkdownRemark.edges.map(({ node }) => {
+			if (!node.fields) {
+				return false;
+			}
 
-		// 	const templateName = String(node.frontmatter.templateKey);
-		// 	const { langKey } = node.fields;
+			const templateName = String(node.frontmatter.templateKey);
+			const { langKey } = node.fields;
 
-		// 	return actions.createPage({
-		// 		path: node.frontmatter.path,
-		// 		context: {
-		// 			slug: node.fields.slug,
-		// 			pageType: node.frontmatter.templateKey,
-		// 			langKey,
-		// 		},
-		// 		component: path.resolve(`./src/templates/${templateName}.jsx`),
-		// 	});
-		// });
+			if (node.frontmatter.templateKey === 'blog') {
+				return false;
+			}
+
+			return createPage({
+				path: node.frontmatter.path,
+				context: {
+					slug: node.fields.slug,
+					pageType: node.frontmatter.templateKey,
+					langKey,
+				},
+				component: path.resolve(`./src/templates/${templateName}.jsx`),
+			});
+		});
 	});
 };
