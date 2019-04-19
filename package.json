@@ -84,7 +84,8 @@
     "now-build": "npm run build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c .storybook -o storybook",
+    "deploy-storybook": "yarn build-storybook && now ./storybook"
   },
   "husky": {
     "hooks": {
