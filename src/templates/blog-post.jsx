@@ -21,6 +21,9 @@ export const BlogPostTemplate = (props) => {
 		en: 'Sorry, this post is not available, try another language.',
 		ru: 'Извините, этот пост еще не написан, попробуйте выбрать другой язык.',
 	};
+
+	const isPublished = status === 'published';
+
 	/* eslint-disable react/no-danger */
 	return (
 		<Layout location={location} lang={langKey}>
@@ -33,7 +36,7 @@ export const BlogPostTemplate = (props) => {
 			<div className={styles.post}>
 				<header className={styles.header}>
 					<h1 className={styles.h1}>{title}</h1>
-					{status !== 'draft' && (
+					{isPublished && (
 						<p
 							style={{
 								...scale(-1 / 5),
@@ -47,7 +50,7 @@ export const BlogPostTemplate = (props) => {
 					)
 					}
 				</header>
-				{status !== 'draft'
+				{isPublished
 					? (<div className={styles.article} dangerouslySetInnerHTML={{ __html: post.html }} />)
 					: (<div className={styles.article}><p>{errorTexts[langKey]}</p></div>)
 				}

@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import Header from './Header';
+import Header from './Header/Header';
+import Menu from './Menu/Menu';
+
+import translate from './site.lang';
+import LangContext from '../context/langContext';
 
 import styles from './layout.module.css';
 
-export const Template = (props) => {
-	const { children, location } = props;
-	const pathname = location.pathname.replace('/en/', '/');
+const Template = (props) => {
+	const { children, lang, location } = props;
+	const langPref = lang === 'en' ? '/en' : '';
+
+	const state = {
+		lang,
+		langPref,
+		location,
+	};
 
 	return (
 		<div className={styles.wrapper}>
@@ -21,11 +31,17 @@ export const Template = (props) => {
 						}
 					}
 				`}
-				render={(data) => {
-					const { title } = data.site.siteMetadata;
-					const langKey = props.lang;
+				render={() => {
+					const currLang = translate[lang];
+					const menuItems = currLang.menu || [];
 
-					return <Header title={title} lang={{ langKey }} slug={pathname} />;
+					return (
+						<LangContext.Provider value={state}>
+							<Header title={currLang.title}>
+								<Menu items={menuItems} />
+							</Header>
+						</LangContext.Provider>
+					);
 				}}
 			/>
 			{children}
