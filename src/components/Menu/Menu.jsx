@@ -10,8 +10,8 @@ class Menu extends React.Component {
 
 	render() {
 		const { items } = this.props;
-		const { lang } = this.context;
-		const slug = window.location.pathname.replace('/en/', '/');
+		const { lang, location } = this.context;
+		const slug = location.pathname.replace('/en/', '/');
 		const isRus = lang === 'ru';
 		const isEn = lang === 'en';
 

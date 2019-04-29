@@ -10,12 +10,13 @@ import LangContext from '../context/langContext';
 import styles from './layout.module.css';
 
 const Template = (props) => {
-	const { children, lang } = props;
+	const { children, lang, location } = props;
 	const langPref = lang === 'en' ? '/en' : '';
 
 	const state = {
 		lang,
 		langPref,
+		location,
 	};
 
 	return (
