@@ -38,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 		// Create blog posts pages.
 		const posts = edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post');
+
 		posts.forEach((post, index) => {
 			const previous = index === posts.length - 1 ? null : posts[index + 1].node;
 			const next = index === 0 ? null : posts[index - 1].node;
@@ -55,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
 		});
 
 		// Create blog post list pages
-		const postsPerPage = 2;
+		const postsPerPage = 5;
 		['ru', 'en'].forEach((lang) => {
 			const langPrefix = lang === 'en' ? 'en/' : '';
 			const blogPosts = edges.filter(({ node }) => node.frontmatter.templateKey === 'blog-post' && node.fields.langKey === lang);

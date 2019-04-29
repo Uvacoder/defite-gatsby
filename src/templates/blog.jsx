@@ -83,7 +83,10 @@ export const pageQuery = graphql`
 		}
 		allMarkdownRemark(
 				filter: { 
-					frontmatter: { templateKey: { eq: "blog-post" } },
+					frontmatter: {
+						templateKey: { eq: "blog-post" },
+						status: { eq: "published" } 
+					},
 					fields: { langKey: { eq: $langKey } },
 				}
 				sort: { fields: [frontmatter___date], order: DESC }
