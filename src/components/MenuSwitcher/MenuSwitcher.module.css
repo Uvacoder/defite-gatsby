@@ -1,5 +1,7 @@
 .switcher {
 	display: none;
+	background: none;
+	border: 0;
 
 	@media (max-width: 690px) {
 		display: flex;
