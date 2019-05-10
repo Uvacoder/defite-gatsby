@@ -1,0 +1,25 @@
+.switcher {
+	display: none;
+
+	@media (max-width: 690px) {
+		display: flex;
+	}
+
+	@media (max-width: 425px) {
+		padding: 0 4px;
+	}
+
+	@media (max-width: 375px) {
+		padding: 0 2px;
+	}
+
+	@media (max-width: 320px) {
+		padding: 0;
+	}
+
+	& img {
+		width: 25px;
+		height: 25px;
+		margin: 0;
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import LangContext from '../../context/langContext';
-import styles from '../Header/header.module.css';
+import styles from './Menu.module.css';
 
 class MenuItem extends React.Component {
 	static contextType = LangContext
@@ -11,8 +11,14 @@ class MenuItem extends React.Component {
 		const { langPref } = this.context;
 
 		return (
-			<li className={styles.menuItem}>
-				<Link to={`${langPref}/${link}`}>{text}</Link>
+			<li className={styles.item}>
+				<Link
+					to={`${langPref}/${link}`}
+					onClick={() => {
+						document.body.classList.remove('menu-visible');
+					}}
+				>{text}
+				</Link>
 			</li>
 		);
 	}

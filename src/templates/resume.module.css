@@ -1,0 +1,39 @@
+.resume__body {
+    & h2 {
+        line-height: 1.5em;
+        font-weight: 400;
+        margin-top: 1em;
+    }
+
+    & h3 {
+        font-size: 1.5em;
+        position: relative;
+        display: inline-block;
+
+        &:before {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            content: "";
+            background-color: #1bafe0;
+            transform: scaleX(1);
+        }
+    }
+
+    & h3 + h4 {
+        margin-top: 1em;
+    }
+
+    & h4 {
+        font-size: 1.3em;
+        margin-bottom: 0;
+    }
+
+    & h4 + p {
+        font-size: 0.95em;
+        margin-bottom: 1em;
+        color: #8e939b;
+    }
+}

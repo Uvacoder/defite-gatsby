@@ -17,6 +17,11 @@ export default {
 				text: 'Обо мне',
 				link: 'about',
 			},
+			{
+				id: 4,
+				text: 'Резюме',
+				link: 'cv',
+			},
 		],
 	},
 	en: {

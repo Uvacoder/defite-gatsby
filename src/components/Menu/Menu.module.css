@@ -1,0 +1,33 @@
+.menu {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.item {
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 0;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    & a:hover {
+        text-decoration: none;
+    }
+}
+
+
+@media (max-width: 425px) {
+	.item {
+        font-size: 1.2rem;
+        margin: 20px 0;
+        display: inherit;
+    }
+
+}

@@ -77,7 +77,7 @@ module.exports = {
 					{
 						family: 'Fira Sans',
 						subsets: ['cyrillic'],
-						variants: ['600', '700', '800'],
+						variants: ['400', '500', '600', '700', '800'],
 					},
 					{
 						family: 'Merriweather',

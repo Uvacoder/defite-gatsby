@@ -2,22 +2,27 @@
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	margin: 0 0 1.5rem 0;
+	align-items: center;
+
 	& a {
 		text-decoration: none;
 		color: #3e3e3e;
 		box-shadow: none;
 		position: relative;
+
 		&:hover {
 			color: inherit;
 		}
 	}
+
 	& .logo {
 		position: relative;
-		grid-column: 2 / 4;
+		grid-column: 2 / 5;
 		margin: 0;
 		padding-bottom: 2px;
+
 		& a {
-			font-family: Fira Sans, sans-serif;
+			font-family: 'Fira Sans', sans-serif;
 			font-weight: 700;
 
 			&:before {
@@ -27,70 +32,73 @@
 				visibility: hidden;
 				width: 100%;
 				height: 2px;
-				content: "";
+				content: '';
 				transition: all 0.3s ease-in-out 0s;
 				transform: scaleX(0);
 				background-color: #1bafe0;
 			}
+
 			&:hover {
 				color: #3e3e3e;
+
 				&:before {
 					visibility: visible;
 					transform: scaleX(1);
 				}
 			}
 		}
+
+		@media (max-width: 1024px) {
+			grid-column: 1 / 5;
+		}
+
+		@media (max-width: 690px) {
+			grid-column: 2 / 6;
+			white-space: nowrap;
+			padding-left: 10px;
+		}
 	}
-	& .nav {
+}
+
+.nav {
+	grid-column: 5 / 11;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	@media (max-width: 1024px) {
 		grid-column: 5 / 12;
 	}
-	& .menu {
-		font-family: 'Fira Sans', sans-serif;
-		font-weight: bold;
-		float: right;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		& .menuItem {
-			display: inline-block;
-			margin-right: 2rem;
-			margin-bottom: 0;
-			&:last-child {
-				margin-right: 0;
-			}
-			& a:hover {
-				text-decoration: none;
-			}
-		}
-		& .languageSwitcher {
-			border: 2px solid orange;
-			display: inline;
-			padding: 5px 10px;
-			border-radius: 20px;
-			& a:first-child {
-				margin-right: 10px;
-			}
-			& .active {
-				color: orange;
-			}
+
+	@media (max-width: 690px) {
+		backface-visibility: hidden;
+		transform: translateX(-275px);
+		transition: transform 0.5s ease;
+		display: flex;
+		justify-content: start;
+		align-items: start;
+		width: 275px;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: fixed;
+		background: #151617;
+		padding: 0.75em 1.25em;
+		z-index: 10;
+
+		& a {
+			color: #cacaca;
 		}
 	}
 }
 
 @media (max-width: 425px) {
 	.header {
-		grid-gap: 10px 0;
-		& .logo, & .nav {
-			grid-column: 1 / 13;
-		}
+
 		& .logo {
-			font-size: 1.7rem;
-		}
-		& .menu {
-			float: none;
-			& .menuItem {
-				font-size: 1.2rem;
-			}
+			text-align: center;
+			font-size: 1.6rem;
+			line-height: 1.5em;
 		}
 	}
 }

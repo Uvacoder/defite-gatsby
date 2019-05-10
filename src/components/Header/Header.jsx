@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styles from './header.module.css';
 import LangContext from '../../context/langContext';
+import MenuSwitcher from '../MenuSwitcher/MenuSwitcher';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+
+import styles from './header.module.css';
 
 class Header extends React.Component {
 	static contextType = LangContext;
@@ -12,10 +15,14 @@ class Header extends React.Component {
 
 		return (
 			<header className={styles.header}>
+				<MenuSwitcher />
 				<h3 className={styles.logo}>
 					<Link to={`${langPref}/`}>{title}</Link>
 				</h3>
-				{ children }
+				<nav className={styles.nav}>
+					{ children }
+				</nav>
+				<LanguageSwitcher />
 			</header>
 		);
 	}

@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import Header from './Header/Header';
-import Menu from './Menu/Menu';
 
 import translate from './site.lang';
 import LangContext from '../context/langContext';
 
-import styles from './layout.module.css';
+import Header from './Header/Header';
+import Menu from './Menu/Menu';
+
+import './layout.css';
 
 const Template = (props) => {
 	const { children, lang, location } = props;
@@ -19,33 +20,41 @@ const Template = (props) => {
 		location,
 	};
 
+	const currLang = translate[lang];
+	const menuItems = currLang.menu || [];
+
+	const handleMenuToggle = (event) => {
+		event.preventDefault();
+		const isWrapper = event.target.getAttribute('class') === 'wrapper';
+
+		if (isWrapper) {
+			document.body.classList.remove('menu-visible');
+		}
+	};
+
 	return (
-		<div className={styles.wrapper}>
-			<StaticQuery
-				query={graphql`
-					query HeadingQuery {
-						site {
-							siteMetadata {
-								title
+		<LangContext.Provider value={state}>
+			{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+			<div className="wrapper" onClick={handleMenuToggle} onKeyDown={handleMenuToggle}>
+				<StaticQuery
+					query={graphql`
+						query HeadingQuery {
+							site {
+								siteMetadata {
+									title
+								}
 							}
 						}
-					}
-				`}
-				render={() => {
-					const currLang = translate[lang];
-					const menuItems = currLang.menu || [];
-
-					return (
-						<LangContext.Provider value={state}>
-							<Header title={currLang.title}>
-								<Menu items={menuItems} />
-							</Header>
-						</LangContext.Provider>
-					);
-				}}
-			/>
-			{children}
-		</div>
+					`}
+					render={() => (
+						<Header title={currLang.title}>
+							<Menu items={menuItems} />
+						</Header>
+					)}
+				/>
+				{children}
+			</div>
+		</LangContext.Provider>
 	);
 };
 
