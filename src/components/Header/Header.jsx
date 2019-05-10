@@ -4,7 +4,7 @@ import LangContext from '../../context/langContext';
 import MenuSwitcher from '../MenuSwitcher/MenuSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
-import styles from './Header.module.css';
+import styles from './header.module.css';
 
 class Header extends React.Component {
 	static contextType = LangContext;

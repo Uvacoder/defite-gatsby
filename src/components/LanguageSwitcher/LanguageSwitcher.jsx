@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'gatsby';
-import styles from './LanguageSwitcher.module.css';
+import styles from './style.module.css';
 import LangContext from '../../context/langContext';
 
 class LanguageSwitcher extends React.Component {
