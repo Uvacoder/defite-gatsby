@@ -22,12 +22,10 @@
     }
 }
 
-
 @media (max-width: 425px) {
 	.item {
         font-size: 1.2rem;
         margin: 20px 0;
         display: inherit;
     }
-
 }
