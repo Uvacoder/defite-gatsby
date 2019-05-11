@@ -22,13 +22,14 @@ const Template = (props) => {
 
 	const currLang = translate[lang];
 	const menuItems = currLang.menu || [];
+	const menuOpenCls = 'menu-visible';
 
 	const handleMenuToggle = (event) => {
-		event.preventDefault();
 		const isWrapper = event.target.getAttribute('class') === 'wrapper';
+		const isMenuVisible = document.body.classList.contains(menuOpenCls);
 
-		if (isWrapper) {
-			document.body.classList.remove('menu-visible');
+		if (isWrapper && isMenuVisible) {
+			document.body.classList.remove(menuOpenCls);
 		}
 	};
 
