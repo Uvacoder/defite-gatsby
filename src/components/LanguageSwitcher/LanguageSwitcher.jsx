@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Link } from 'gatsby';
 import styles from './style.module.css';
 import LangContext from '../../context/langContext';
@@ -14,7 +13,7 @@ class LanguageSwitcher extends React.Component {
 		const isEn = lang === 'en';
 
 		return (
-			<span className={classNames(styles.switcher)}>
+			<span className={styles.switcher}>
 				<Link className={isEn ? styles.active : ''} to={`en${slug}`}>
 					en
 				</Link>
