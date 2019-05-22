@@ -6,7 +6,7 @@ title: Резюме
 
 # Привет!
 
-## Я занимаюсь фронтенд-разработкой около 10 лет. Пишу на [Vue.js](https://vuejs.org/), [React](https://reactjs.org/), [Redux](https://redux.js.org), [TypeScript](https://www.typescriptlang.org), понимаю принципы [БЭМ](https://bem.info/), в работе использую [Webpack](https://reactjs.org/), [PostCSS](https://postcss.org) и [Stylus](http://stylus-lang.com). Это далеко не самый полный список инструментов, который я пользуюсь каждый день.
+## Я занимаюсь фронтенд-разработкой около 10 лет. Пишу на [Vue.js](https://vuejs.org/), [React](https://reactjs.org/), [Redux](https://redux.js.org), [TypeScript](https://www.typescriptlang.org), понимаю принципы [БЭМ](https://bem.info/), в работе использую [Webpack](https://reactjs.org/), [PostCSS](https://postcss.org) и [Stylus](http://stylus-lang.com). Это далеко не самый полный список инструментов, которым я пользуюсь каждый день.
 
 ### Где я работаю
 
@@ -37,7 +37,7 @@ title: Резюме
 
 Исполнял свои обязанности в качестве html-верстальщика, работал с Wordpress и Drupal. Из крупных проектов до сих пор горжусь сайтом для ТРК "Атриум". Это был один из крупнейшних и сложных для меня проектов.
 
-#### Эксперт, Издательский холдинг
+#### Эксперт, Издательский холдинг
 Февраль 2010 — Август 2010
 
 Занимался версткой админки для редакции, отвечал за внедрение партнерских баннеров на сайт.
