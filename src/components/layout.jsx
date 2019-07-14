@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-
 import translate from './site.lang';
 import LangContext from '../context/langContext';
-
-import Header from './Header/Header';
-import Menu from './Menu/Menu';
-
+import Header from './Header';
+import Menu from './Menu';
 import './layout.css';
 
 const Template = (props) => {
