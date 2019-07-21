@@ -54,7 +54,7 @@
 
 :global .gatsby-resp-image-wrapper {
   width: 70%;
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 
 :global .gatsby-resp-image-image {
