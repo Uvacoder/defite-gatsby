@@ -52,6 +52,14 @@
   grid-column: 1 / 13;
 }
 
+:global .gatsby-resp-image-wrapper {
+  width: 100%;
+}
+
+:global .gatsby-resp-image-image {
+  height: inherit;
+}
+
 @media (max-width: 425px) {
   .header,
   .article *,
