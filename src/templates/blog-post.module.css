@@ -53,11 +53,12 @@
 }
 
 :global .gatsby-resp-image-wrapper {
-  width: 100%;
+  width: 70%;
+  margin-left: 0;
 }
 
 :global .gatsby-resp-image-image {
-  height: inherit;
+  height: inherit !important;
 }
 
 @media (max-width: 425px) {
