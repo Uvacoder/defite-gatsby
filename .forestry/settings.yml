@@ -5,8 +5,13 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: content/posts
-  label: Posts
+  path: content/posts/en
+  label: Posts (en)
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/posts/ru
+  label: Posts (ru)
   create: all
   match: "**/*"
 - type: directory
