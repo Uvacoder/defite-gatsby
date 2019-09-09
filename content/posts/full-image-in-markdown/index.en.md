@@ -11,13 +11,13 @@ status: draft
 Например, как тут:
 <div class="image-with-caption"></div>
 
-| ![Full width image](./medium-article.png) |
+| ![Full width image](/uploads/medium-article.png) |
 |:--:|
 | Статья: [https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67](https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67) |
 
 **markdown**
 ```markdown
-![Full width image](./cornelius-dammrich-52hz-shot-a-web-high.jpg)
+![Full width image](/uploads/cornelius-dammrich-52hz-shot-a-web-high.jpg)
 ```
 
 **css**

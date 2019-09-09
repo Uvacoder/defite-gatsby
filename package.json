@@ -24,6 +24,7 @@
     "gatsby-remark-images": "latest",
     "gatsby-remark-picture": "1.0.1",
     "gatsby-remark-prismjs": "latest",
+    "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-remark-responsive-iframe": "latest",
     "gatsby-remark-smartypants": "latest",
     "gatsby-remark-unwrap-images": "1.0.1",
@@ -80,7 +81,7 @@
     "url": "git+https://github.com/Defite/defite-gatsby.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "APP_GITHUB_TOKEN=99abcbed1ceae3dd4259455986275d68909cb86e gatsby develop",
     "lint": "eslint src --ext .js,.jsx",
     "build": "gatsby build",
     "now-build": "npm run build",
