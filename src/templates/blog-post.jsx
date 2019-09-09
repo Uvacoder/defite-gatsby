@@ -10,7 +10,7 @@ import styles from './blog-post.module.css';
 export const BlogPostTemplate = (props) => {
 	const { data, location } = props;
 	const { site, markdownRemark: post } = data;
-	const { title, status, date } = post.frontmatter;
+	const { title, published, date } = post.frontmatter;
 
 	const { title: siteTitle } = site.siteMetadata;
 	const siteDescription = post.excerpt;
@@ -22,7 +22,7 @@ export const BlogPostTemplate = (props) => {
 		ru: 'Извините, этот пост еще не написан, попробуйте выбрать другой язык.',
 	};
 
-	const isPublished = status === 'published';
+	const isPublished = published;
 
 	/* eslint-disable react/no-danger */
 	return (
@@ -89,7 +89,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
-				status
+				published
 				date(formatString: "MMMM DD, YYYY", locale: $langKey)
 			}
 		}

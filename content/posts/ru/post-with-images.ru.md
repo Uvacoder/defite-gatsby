@@ -4,7 +4,7 @@ path: /blog/post-with-images
 title: Post with images
 excerpt: Тестовый пост с картинками
 date: 2018-08-28T21:57:48.831Z
-status: draft
+published: false
 ---
 
 <div class="full-image"></div>

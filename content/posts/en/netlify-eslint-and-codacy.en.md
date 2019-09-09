@@ -4,7 +4,7 @@ path: /en/blog/netlify-eslint-and-codacy
 title: Netlify, Eslint and Codacy
 excerpt: Пара слов о Netlify, Eslint и Codacy
 date: "2018-11-04T00:29:09.284Z"
-status: draft
+published: false
 ---
 
 Почти полгода провисел мой блог на Gatsby без движения, потом я перевел его на версию next, и вот наконец-то сегодня дошли руки, чтобы смержить ветку v2 в мастер. Правда, не обошлось без проблем:

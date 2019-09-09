@@ -4,7 +4,7 @@ path: /blog/hello-world
 title: Hello world
 excerpt: console.log('Hello world');
 date: "2018-01-02T08:45:09.284Z"
-status: published
+published: true
 ---
 
 Привет, меня зовут Никита, я работаю фронтенд-разработчиком в компании [Mail.ru](https://mail.ru) и делаю Медиапроекты. В свободное от работы время я продолжаю писать код и изучать смежные с фронтендом технологии, изучаю [Vue.js](https://vuejs.org/) и пилю секретный проект. Без ума от своего [Volvo](https://www.drive2.ru/r/volvo/v40_cross_country/480505823865339906/).
