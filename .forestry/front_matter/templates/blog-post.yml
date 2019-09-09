@@ -20,7 +20,3 @@ fields:
 - name: published
   type: boolean
   label: published
-  default: true
-  showOnly:
-    value: true
-  hidden: false
