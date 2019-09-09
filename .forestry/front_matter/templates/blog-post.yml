@@ -22,5 +22,5 @@ fields:
   label: published
   default: true
   showOnly:
-    value: false
+    value: true
     field: published
