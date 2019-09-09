@@ -23,4 +23,4 @@ fields:
   default: true
   showOnly:
     value: true
-    field: published
+  hidden: false
