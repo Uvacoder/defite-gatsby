@@ -17,6 +17,7 @@ fields:
 - type: datetime
   name: date
   label: date
-- type: text
-  name: status
-  label: status
+- name: published
+  type: boolean
+  label: published
+  default: false
