@@ -16,6 +16,8 @@ sections:
   label: Posts (ru)
   create: all
   match: "**/*"
+  templates:
+  - blog-post
 - type: directory
   path: content/pages
   label: Pages
