@@ -5,6 +5,11 @@ body {
 html {
     overflow-y: initial;
     overflow-x: hidden;
+
+    @media print {
+        font-size: 62.5%;
+        line-height: 2.2em;
+    }
 }
 
 .wrapper {

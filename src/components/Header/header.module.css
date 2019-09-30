@@ -4,6 +4,10 @@
 	margin: 0 0 1.5rem 0;
 	align-items: center;
 
+	@media print {
+		display: none;
+	}
+
 	& a {
 		text-decoration: none;
 		color: #3e3e3e;

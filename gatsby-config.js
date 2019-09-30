@@ -99,6 +99,7 @@ module.exports = {
 					},
 					{
 						family: 'Merriweather',
+						subsets: ['cyrillic'],
 						variants: ['400', '700'],
 					},
 				],
