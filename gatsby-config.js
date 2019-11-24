@@ -13,6 +13,13 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
+				path: `${__dirname}/uploads`,
+				name: 'uploads',
+			},
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
 				path: `${__dirname}/content/pages`,
 				name: 'pages',
 			},
@@ -36,6 +43,9 @@ module.exports = {
 			resolve: 'gatsby-transformer-remark',
 			options: {
 				plugins: [
+					{
+						resolve: 'gatsby-remark-relative-images',
+					},
 					'gatsby-remark-unwrap-images',
 					{
 						resolve: 'gatsby-remark-images',
@@ -89,6 +99,7 @@ module.exports = {
 					},
 					{
 						family: 'Merriweather',
+						subsets: ['cyrillic'],
 						variants: ['400', '700'],
 					},
 				],

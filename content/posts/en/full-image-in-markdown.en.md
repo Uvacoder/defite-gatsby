@@ -1,26 +1,30 @@
 ---
 templateKey: blog-post
-path: /en/blog/full-image-in-markdown
+path: "/en/blog/full-image-in-markdown"
 title: Full image in markdown
 excerpt: Хак для картинок на всю ширину экрана в Markdown
-date: 2019-02-03T18:35:00
-status: draft
----
+date: 2019-02-03T18:35:00.000+00:00
+published: false
 
-Небольшой хак для тех, кто хочет делать посты с картинками во всю ширину экрана как было модно на [medium.com](https://medium.com). 
+---
+Small hack for those, who want to make full-width images in their posts like Medium, for example.
+
+
 Например, как тут:
 <div class="image-with-caption"></div>
 
-| ![Full width image](./medium-article.png) |
-|:--:|
-| Статья: [https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67](https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67) |
+|  |
+| :---: |
+| Статья: https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67 |
 
 **markdown**
+
 ```markdown
-![Full width image](./cornelius-dammrich-52hz-shot-a-web-high.jpg)
+![Full width image](/uploads/cornelius-dammrich-52hz-shot-a-web-high.jpg)
 ```
 
 **css**
+
 ```css
 img[alt~="full"] {
     position: relative;
