@@ -1,6 +1,5 @@
 node_modules/
 public
-storybook
 .gatsby-context.js
 .DS_Store
 .cache/
