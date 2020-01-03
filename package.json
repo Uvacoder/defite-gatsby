@@ -29,8 +29,8 @@
     }
   },
   "dependencies": {
-    "@defite/gatsby-theme-defite": "^1.0.0",
-    "gatsby": "^2.18.6",
+    "@defite/gatsby-theme-defite": "^1.1.0",
+    "gatsby": "^2.18.17",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
