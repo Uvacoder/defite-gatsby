@@ -12,6 +12,9 @@
   ],
   "license": "MIT",
   "main": "n/a",
+  "engines": {
+    "node": "10.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Defite/defite-gatsby.git"
