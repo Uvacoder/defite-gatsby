@@ -11,9 +11,9 @@ published: true
 Например, как тут:
 <div class="image-with-caption"></div>
 
-|  |
-| :---: |
-| Статья: https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67 |
+| ![Full width image](/uploads/medium-article.png) |
+|:--:|
+| Статья: [https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67](https://medium.com/tall-west/lets-ditch-the-nav-bar-3692cb17cc67) |
 
 **markdown**
 
