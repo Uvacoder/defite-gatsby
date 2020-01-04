@@ -20,3 +20,5 @@ fields:
 - name: published
   type: boolean
   label: published
+pages:
+- content/posts/ru/публикация-пакета-в-npm.md
