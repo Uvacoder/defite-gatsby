@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
-path: "/blog/netlify-eslint-and-codacy"
+category: notes
+path: /notes/netlify-eslint-and-codacy
 title: Netlify, Eslint и Codacy
 excerpt: Пара слов о Netlify, Eslint и Codacy
 date: 2018-11-04T00:29:09.284Z

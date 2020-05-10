@@ -1,5 +1,5 @@
 ---
 templateKey: blog
-path: /blog/
+path: /articles/
 title: Блог
 ---

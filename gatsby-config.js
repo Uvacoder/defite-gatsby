@@ -1,4 +1,4 @@
-const menu = require('./src/@defite/gatsby-theme-defite/langs/menu');
+const menu = require('./src/@defite/gatsby-theme-defite/langs/menuDict');
 const langs = Object.keys(menu);
 
 module.exports = {

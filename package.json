@@ -13,7 +13,7 @@
   "license": "MIT",
   "main": "n/a",
   "engines": {
-    "node": "10.x"
+    "node": "14.x"
   },
   "repository": {
     "type": "git",
@@ -21,17 +21,11 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "eslint src --ext .js,.jsx",
     "build": "gatsby build",
     "now-build": "npm run build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "dependencies": {
-    "@defite/gatsby-theme-defite": "^1.1.3",
+    "@defite/gatsby-theme-defite": "2.0.0",
     "gatsby": "^2.18.17",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

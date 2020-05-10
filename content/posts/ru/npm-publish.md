@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
-path: "/blog/npm-publish"
+category: articles
+path: /articles/npm-publish
 title: Публикация пакета в npm
 excerpt: Подборка полезных команд при публикации пакета в npm
 date: 2020-01-04T17:00:00Z

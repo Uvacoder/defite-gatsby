@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
-path: "/blog/full-image-in-markdown"
+category: articles
+path: /articles/full-image-in-markdown
 title: Картинка на всю ширину в Markdown
 excerpt: Хак для картинок на всю ширину экрана в Markdown
 date: 2019-02-03T18:35:00.000+00:00

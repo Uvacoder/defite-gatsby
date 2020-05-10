@@ -1,6 +1,7 @@
 ---
 templateKey: blog-post
-path: /en/blog/hello-world
+category: notes
+path: /en/notes/hello-world
 title: Hello world
 excerpt: console.log('Hello world');
 date: "2018-01-02T08:45:09.284Z"
