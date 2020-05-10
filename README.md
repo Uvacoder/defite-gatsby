@@ -1,17 +1,11 @@
 # Defite-gatsby
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e3d84e9390ef4f52b6e728f0d78c573d)](https://app.codacy.com/app/Defite/defite-gatsby?utm_source=github.com&utm_medium=referral&utm_content=Defite/defite-gatsby&utm_campaign=Badge_Grade_Settings)
+Personal site built on [Gatsby](https://www.gatsbyjs.org/).
 
-Personal site built on [Gatsby](https://www.gatsbyjs.org/) ~~with integrated [Netlify CMS](https://github.com/netlify/netlify-cms)~~.
-
-![Personal site built on Gatsby](https://user-images.githubusercontent.com/299118/34795082-e5ea3b58-f661-11e7-8d50-b678f5e77db9.png)
-
+![Personal site built on Gatsby](https://user-images.githubusercontent.com/299118/81503652-70776a00-92ed-11ea-8c5d-1b7c14d2b611.png)
 
 ## Running in development
 `gatsby develop`
-
-## Running eslint
-`npm run eslint`
 
 ## Building prod version
 `gatsby build`
@@ -19,4 +13,7 @@ Personal site built on [Gatsby](https://www.gatsbyjs.org/) ~~with integrated [Ne
 ## Running prod version
 `gatsby serve`
 
-PR and issues are welcome!
+## Content
+
+I store content for pages in `content/pages` and for posts - `content/posts`.
+
