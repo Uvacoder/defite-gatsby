@@ -1,0 +1,25 @@
+---
+label: Note
+hide_body: false
+fields:
+- type: text
+  name: templateKey
+  label: templateKey
+- type: text
+  name: category
+  label: category
+- type: text
+  name: path
+  label: path
+- type: text
+  name: title
+  label: title
+- type: text
+  name: excerpt
+  label: excerpt
+- type: datetime
+  name: date
+  label: date
+- type: boolean
+  name: published
+  label: published
