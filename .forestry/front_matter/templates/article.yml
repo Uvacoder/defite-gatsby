@@ -5,9 +5,11 @@ fields:
 - type: text
   name: templateKey
   label: templateKey
+  default: blog-post
 - type: text
   name: category
   label: category
+  default: articles
 - type: text
   name: path
   label: path
