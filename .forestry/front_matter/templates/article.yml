@@ -26,3 +26,8 @@ fields:
 - type: boolean
   name: published
   label: published
+- name: coverimg
+  type: file
+  config:
+    maxSize: 64
+  label: coverImg
