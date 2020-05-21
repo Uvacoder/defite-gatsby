@@ -1,11 +1,12 @@
 ---
 templateKey: blog-post
 category: articles
-path: /articles/npm-publish
+path: "/articles/npm-publish"
 title: Публикация пакета в npm
 excerpt: Подборка полезных команд при публикации пакета в npm
-date: 2020-01-04T17:00:00Z
+date: 2020-01-04T17:00:00.000+00:00
 published: true
+coverimg: "/uploads/npm.jpeg"
 
 ---
 В процессе вынесения [темы](https://github.com/Defite/gatsby-theme-defite/tree/master/gatsby-theme-defite "Gatsby Defite theme") моего блога в отдельный пакет в npm, я составил небольшой список полезных команд и утилит, необходимых для удобной публикации пакета.
