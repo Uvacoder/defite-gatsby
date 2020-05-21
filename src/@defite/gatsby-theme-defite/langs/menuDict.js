@@ -3,7 +3,7 @@ module.exports = {
 		title: 'Никита Махов',
 		menu: [
 			{
-				text: 'Блог',
+				text: 'Статьи',
 				link: 'articles',
 			},
 			{
