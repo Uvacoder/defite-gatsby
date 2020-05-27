@@ -2,6 +2,7 @@
 templateKey: home
 path: /en/
 title: Home
+showInMenu: false
 ---
 
 # Howdy, I'm Nikita 👋

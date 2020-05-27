@@ -2,6 +2,7 @@
 templateKey: page
 path: /en/about
 title: About
+showInMenu: false
 ---
 
 Hi, I'm Nikita. I'm front-end developer from Russia, Moscow (i dream about moving to Helsinki). I'm working in [Mail.ru](https://mail.ru) and almost for two years I code Mediaprojects. Earlier I spent almost 6 years coding back-office in [Авто.ру](https://auto.ru) and different parts of main site.

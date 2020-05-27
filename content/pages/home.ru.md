@@ -2,6 +2,7 @@
 templateKey: home
 path: /
 title: Главная
+showInMenu: false
 ---
 
 # Привет, я Никита 🖖

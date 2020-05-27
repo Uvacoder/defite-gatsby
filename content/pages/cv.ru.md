@@ -2,6 +2,7 @@
 templateKey: resume
 path: /cv/
 title: Резюме
+showInMenu: false
 ---
 
 # Привет!
