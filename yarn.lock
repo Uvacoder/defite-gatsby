@@ -967,10 +967,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@defite/gatsby-theme-defite@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@defite/gatsby-theme-defite/-/gatsby-theme-defite-2.3.0.tgz#6d4b5f6b785b51745ca65b03bd83cd51769683a7"
-  integrity sha512-XY9XMKqWH8TEGgt3jVOcZ6SCgCFHAgdyQBxDLU62EIiB2wDy7bRF9Lik6b0U1/XFcKFtgLpKiRFeJLP4heOamQ==
+"@defite/gatsby-theme-defite@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@defite/gatsby-theme-defite/-/gatsby-theme-defite-2.3.1.tgz#258fac1512796c1be321b4bffe154d1b80f762b8"
+  integrity sha512-SZ3zahPTRaKSAPFoprStzEvbdruTgrs5dCc4MhI+uMbJ5mQ4xARIQC2vTjW9bSG1KfwLyfdHAGDLCE6ur2rxow==
   dependencies:
     "@emotion/styled" "^10.0.27"
     classnames "^2.2.6"
