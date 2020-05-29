@@ -7,18 +7,18 @@ module.exports = {
                 siteMetadata: {
                     siteUrl: 'https://defite.ru',
                     ru: {
-						title: 'Никита Махов',
+						title: 'Defite',
 						author: 'Никита Махов',
 						description: 'Блог фронтенд-разработчика',
 					},
 					en: {
-						title: 'Nikita Makhov',
+						title: 'Defite',
 						author: 'Nikita Makhov',
 						description: 'Frontend developer blog',
 					},
                 },
                 manifestOptions: {
-                    name: 'Nikita Makhov',
+                    name: 'Defite',
                     short_name: 'Defite.ru',
                     start_url: '/',
                     background_color: '#ffffff',
